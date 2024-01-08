@@ -59,4 +59,9 @@ public class EmuladorJPA implements Emulador, Serializable {
     public void setSistema(SistemaJPA sistema) {
         this.sistema = sistema;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

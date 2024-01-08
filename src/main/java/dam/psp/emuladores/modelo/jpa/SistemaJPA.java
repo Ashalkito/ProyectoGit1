@@ -60,4 +60,9 @@ public class SistemaJPA implements Sistema, Serializable {
     public void setEmuladores(List<EmuladorJPA> emuladores) {
         this.emuladores = emuladores;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }
