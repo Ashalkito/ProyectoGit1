@@ -3,9 +3,7 @@ plugins {
     id("application")
     id("org.openjfx.javafxplugin") version "0.1.0"
 }
-application{
-    mainClass="dam.psp.emuladores.gui.ProgramaEmuladores"
-}
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -31,3 +29,4 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+//
