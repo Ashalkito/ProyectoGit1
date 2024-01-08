@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 public class SistemaJPA implements Sistema, Serializable {
@@ -21,7 +22,10 @@ public class SistemaJPA implements Sistema, Serializable {
     @OneToMany
     private List<EmuladorJPA> emuladores;
 
-    private SistemaJPA(){}
+    public SistemaJPA(){
+        juegos=new ArrayList<>();
+        emuladores=new ArrayList<>();
+    }
 
     @Override
     public int getId() {
@@ -55,5 +59,10 @@ public class SistemaJPA implements Sistema, Serializable {
 
     public void setEmuladores(List<EmuladorJPA> emuladores) {
         this.emuladores = emuladores;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

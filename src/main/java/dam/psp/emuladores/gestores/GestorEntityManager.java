@@ -19,7 +19,8 @@ public class GestorEntityManager {
         }else {
             gem=INSTANCIA;
         }
-        return gem;
+        INSTANCIA=gem;
+        return INSTANCIA;
     }
 
 }
