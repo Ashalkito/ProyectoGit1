@@ -7,6 +7,6 @@ public interface Emulador {
     public String getLineaComandos();
     public Sistema getSistema();
     public default boolean abrir(Videojuego v, boolean grabarVideo){
-
+        throw new UnsupportedOperationException(("Sin programar"));
     }
 }
