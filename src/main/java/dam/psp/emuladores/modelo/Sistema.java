@@ -1,8 +1,10 @@
 package dam.psp.emuladores.modelo;
 
+import java.util.List;
+
 public interface Sistema {
     public int getId();
     public String getNombre();
-    public <T> List<T extends Videojuego> getJuegos();
-    public <T> List<T extends Emulador> getEmuladores();
+    public <T extends Videojuego> List<T> getJuegos();
+    public <T extends Emulador> List<T> getEmuladores();
 }
