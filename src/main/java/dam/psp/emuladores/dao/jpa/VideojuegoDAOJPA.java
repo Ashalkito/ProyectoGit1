@@ -1,6 +1,11 @@
 package dam.psp.emuladores.dao.jpa;
 
 import dam.psp.emuladores.dao.VideojuegoDAO;
+import dam.psp.emuladores.modelo.Categoria;
+import dam.psp.emuladores.modelo.Sistema;
+import dam.psp.emuladores.modelo.Videojuego;
+
+import java.util.List;
 
 public class VideojuegoDAOJPA implements VideojuegoDAO {
     @Override
@@ -9,7 +14,7 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
     }
 
     @Override
-    public List<Videojuego> getVideojuegos(String patron, Sistema s, Categoria c) {
+    public <T extends Videojuego> List<T> getVideojuegos(String patron, Sistema s, Categoria c) {
         throw new UnsupportedOperationException("Método sin programar");
     }
 }
