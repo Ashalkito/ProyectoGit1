@@ -9,6 +9,11 @@ import java.util.List;
 
 @Entity
 public class VideojuegoJPA implements Videojuego,Serializable {
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
+
     @Id
     @GeneratedValue
     private int id;
