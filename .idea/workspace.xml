@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="COMMIT ALICIA .modelo SIN TERMINAR" />
+    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="a">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/gestores/GestorExecutorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/gestores/GestorEntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/gestores/GestorEntityManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,20 +40,17 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
   <component name="ProjectId" id="2afDzY60zmJKCEnDk7PuJ9Lez8h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -71,15 +74,7 @@
       <option name="project" value="LOCAL" />
       <updated>1704702082598</updated>
     </task>
-    <task id="LOCAL-00003" summary="COMMIT ALICIA .modelo SIN TERMINAR">
-      <option name="closed" value="true" />
-      <created>1704706655929</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1704706655930</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,7 +90,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
-    <MESSAGE value="COMMIT ALICIA .modelo SIN TERMINAR" />
-    <option name="LAST_COMMIT_MESSAGE" value="COMMIT ALICIA .modelo SIN TERMINAR" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
 </project>
