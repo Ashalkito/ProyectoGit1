@@ -1,16 +1,15 @@
 package dam.psp.emuladores.dao.jpa;
 
-import dam.psp.emuladores.dao.SistemaDAO;
+import dam.psp.emuladores.dao.CategoriaDAO;
 
-public class SistemaDAOJPA implements SistemaDAO {
-
+public class CategoriaDAOJPA implements CategoriaDAO {
     @Override
-    public Sistema nuevoSistema(String nombre) {
+    public Categoria nuevaCategoria(String n) {
         throw new UnsupportedOperationException("Método sin programar");
     }
 
     @Override
-    public List<Sistema> getSistema() {
+    public List<Categoria> getCategorias() {
         throw new UnsupportedOperationException("Método sin programar");
     }
 }
