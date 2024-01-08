@@ -21,7 +21,7 @@ public class SistemaJPA implements Sistema, Serializable {
     @OneToMany
     private List<EmuladorJPA> emuladores;
 
-    private SistemaJPA(){}
+    public SistemaJPA(){}
 
     @Override
     public int getId() {
