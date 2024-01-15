@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="EmuladorDAOJPA cambios">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_1.xml" afterDir="false" />
+    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="Emulador: método abrir en proceso">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Emulador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Emulador.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,18 +20,6 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,9 +37,6 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
   <component name="ProjectId" id="2afDzY60zmJKCEnDk7PuJ9Lez8h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -64,8 +46,6 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/marin/IdeaProjects/TemaJPA",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
@@ -92,39 +72,47 @@
       <option name="project" value="LOCAL" />
       <updated>1704702082598</updated>
     </task>
-    <task id="LOCAL-00003" summary="EmuladorJPA y SistemaJPA">
+    <task id="LOCAL-00003" summary="Intento de pull (no me deja sin hacer un comentario)">
       <option name="closed" value="true" />
-      <created>1704711617084</created>
+      <created>1704707303337</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1704711617084</updated>
+      <updated>1704707303337</updated>
     </task>
-    <task id="LOCAL-00004" summary="Cambios SistemaJPA (listas)">
+    <task id="LOCAL-00004" summary="Emulador sin programar">
       <option name="closed" value="true" />
-      <created>1704712504564</created>
+      <created>1704707932617</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1704712504564</updated>
+      <updated>1704707932617</updated>
     </task>
-    <task id="LOCAL-00005" summary="toString en EmuladorJPA y SistemaJPA">
+    <task id="LOCAL-00005" summary="DAOFactory sin programar">
       <option name="closed" value="true" />
-      <created>1704712739178</created>
+      <created>1704708760605</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1704712739178</updated>
+      <updated>1704708760605</updated>
     </task>
-    <task id="LOCAL-00006" summary="EmuladorDAOJPA cambios">
+    <task id="LOCAL-00006" summary="DAOFactory programado">
       <option name="closed" value="true" />
-      <created>1704714878838</created>
+      <created>1704711657643</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1704714878838</updated>
+      <updated>1704711657643</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Emulador: método abrir en proceso">
+      <option name="closed" value="true" />
+      <created>1704713362639</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704713362639</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,10 +128,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
-    <MESSAGE value="EmuladorJPA y SistemaJPA" />
-    <MESSAGE value="Cambios SistemaJPA (listas)" />
-    <MESSAGE value="toString en EmuladorJPA y SistemaJPA" />
-    <MESSAGE value="EmuladorDAOJPA cambios" />
-    <option name="LAST_COMMIT_MESSAGE" value="EmuladorDAOJPA cambios" />
+    <MESSAGE value="Intento de pull (no me deja sin hacer un comentario)" />
+    <MESSAGE value="Emulador sin programar" />
+    <MESSAGE value="DAOFactory sin programar" />
+    <MESSAGE value="DAOFactory programado" />
+    <MESSAGE value="Emulador: método abrir en proceso" />
+    <option name="LAST_COMMIT_MESSAGE" value="Emulador: método abrir en proceso" />
   </component>
 </project>
