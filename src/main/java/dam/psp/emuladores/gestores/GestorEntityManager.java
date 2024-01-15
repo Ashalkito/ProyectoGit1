@@ -7,7 +7,7 @@ public class GestorEntityManager {
     private static GestorEntityManager INSTANCIA;
     private EntityManager entityManager;
     private GestorEntityManager(){
-        entityManager= Persistence.createEntityManagerFactory("PU_EMULADORES").createEntityManager();
+        entityManager= Persistence.createEntityManagerFactory("PU_CARRERAS").createEntityManager();
     }
     public EntityManager getEntityManager(){
         return entityManager;
@@ -22,7 +22,14 @@ public class GestorEntityManager {
         INSTANCIA=gem;
         return INSTANCIA;
     }
-
+    public static void main(String[] args) {
+        EntityManager ex=GestorEntityManager.getINSTANCIA().getEntityManager();
+        if (ex==null){
+            System.out.println("No funciona");
+        }else{
+            System.out.println("Sos un crack");
+        }
+    }
 }
 //static a la instancia
 //

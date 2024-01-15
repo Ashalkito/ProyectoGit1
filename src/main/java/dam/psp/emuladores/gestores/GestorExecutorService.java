@@ -22,5 +22,14 @@ public class GestorExecutorService {
         INSTANCIA=ges;
         return INSTANCIA;
     }
+    public static void main(String[] args) {
+        ExecutorService ex=GestorExecutorService.getINSTANCIA().getExecutorService();
+        if (ex==null){
+            System.out.println("No funciona");
+        }else{
+            System.out.println("Sos un crack");
+        }
+        ex.shutdown();
+    }
 }
 //:9
