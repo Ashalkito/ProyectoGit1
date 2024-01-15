@@ -29,8 +29,8 @@ public class CategoriaDAOJPA implements CategoriaDAO {
     }
 
     @Override
-    public List<Categoria> getCategorias() {
-        List<Categoria> cts=null;
+    public List<CategoriaJPA> getCategorias() {
+        List<CategoriaJPA> cts=null;
         try {
             EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
             cts=em.createQuery("SELECT c FROM Categoria c").getResultList();
