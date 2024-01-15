@@ -6,6 +6,7 @@ import dam.psp.emuladores.modelo.Categoria;
 import dam.psp.emuladores.modelo.jpa.CategoriaJPA;
 import jakarta.persistence.EntityManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriaDAOJPA implements CategoriaDAO {
@@ -17,14 +18,25 @@ public class CategoriaDAOJPA implements CategoriaDAO {
             cj.setNombre(n);
             c= (Categoria) cj;
             EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
+            em.getTransaction().begin();
+            em.persist(c);
+            em.close();
         }catch (Exception e){
-            return  null;
+            System.out.println("Fallo metodo nueva categoria");
+            c=null;
         }
         return c;
     }
 
     @Override
     public List<CategoriaJPA> getCategorias() {
-        throw new UnsupportedOperationException("Método sin programar");
+        List<CategoriaJPA> cts=null;
+        try {
+            EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
+            cts=em.createQuery("SELECT c FROM Categoria c").getResultList();
+        }catch (Exception e){
+            System.out.println("No se pudo acceder a la lista de Categorias");
+        }
+        return cts;
     }
 }
