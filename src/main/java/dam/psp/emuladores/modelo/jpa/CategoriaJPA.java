@@ -1,5 +1,6 @@
 package dam.psp.emuladores.modelo.jpa;
 
+import dam.psp.emuladores.modelo.Categoria;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class CategoriaJPA implements Serializable {
+public class CategoriaJPA implements Serializable{
     @Override
     public String toString() {
         return this.nombre;
