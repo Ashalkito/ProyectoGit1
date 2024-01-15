@@ -33,7 +33,7 @@ public class CategoriaDAOJPA implements CategoriaDAO {
         List<CategoriaJPA> cts=null;
         try {
             EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
-            cts=em.createQuery("SELECT c FROM Categoria c").getResultList();
+            cts=em.createQuery("SELECT c FROM CategoriaJPA c").getResultList();
         }catch (Exception e){
             System.out.println("No se pudo acceder a la lista de Categorias");
         }
