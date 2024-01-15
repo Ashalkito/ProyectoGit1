@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class VentanaImagen implements Initializable {
+public class VentanaImagen extends ControladorSecundario implements Initializable {
 
     @FXML
     private Button btnJugar;

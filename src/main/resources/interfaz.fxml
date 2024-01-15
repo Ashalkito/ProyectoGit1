@@ -8,11 +8,10 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.psp.emuladores.gui.controladores.ControladorPrincipal">
@@ -21,10 +20,10 @@
         <menus>
           <Menu fx:id="menuNuevo" mnemonicParsing="false" text="Nuevo">
             <items>
-                  <MenuItem fx:id="miVideojuego" mnemonicParsing="false" text="Videojuego" />
-              <MenuItem fx:id="miCategoria" mnemonicParsing="false" text="Categoría" />
-                  <MenuItem fx:id="miSistema" mnemonicParsing="false" text="Sistema" />
-                  <MenuItem fx:id="miEmulador" mnemonicParsing="false" text="Emulador" />
+                  <MenuItem fx:id="miVideojuego" mnemonicParsing="false" onAction="#pulsarVideojuego" text="Videojuego" />
+              <MenuItem fx:id="miCategoria" mnemonicParsing="false" onAction="#pulsarCategoria" text="Categoría" />
+                  <MenuItem fx:id="miSistema" mnemonicParsing="false" onAction="#pulsarSistema" text="Sistema" />
+                  <MenuItem fx:id="miEmulador" mnemonicParsing="false" onAction="#pulsarEmulador" text="Emulador" />
             </items>
           </Menu>
         </menus>
@@ -34,16 +33,13 @@
       </MenuBar>
       <ScrollPane prefHeight="600.0" prefWidth="600.0">
          <content>
-            <GridPane fx:id="gpn1" prefHeight="30.0" prefWidth="978.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
+            <TableView prefHeight="518.0" prefWidth="978.0">
+              <columns>
+                <TableColumn prefWidth="326.0" text="Nombre" />
+                <TableColumn prefWidth="326.0" text="Sistema" />
+                  <TableColumn prefWidth="326.0" text="Categoría" />
+              </columns>
+            </TableView>
          </content>
       </ScrollPane>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="24.0">
@@ -54,7 +50,7 @@
             <ChoiceBox fx:id="chbSistema" prefWidth="150.0" />
             <Label text="Categoría:" />
             <ChoiceBox fx:id="chbCategoria" prefWidth="150.0" />
-            <Button fx:id="btnBuscar" mnemonicParsing="false" prefWidth="100.0" text="Buscar">
+            <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#pulsarBuscar" prefWidth="100.0" text="Buscar">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></Button>
