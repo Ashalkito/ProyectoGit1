@@ -22,4 +22,25 @@ public class DAOFactory {
     public static CategoriaDAO getCategoriaDAO(){
         return new CategoriaDAOJPA();
     }
+
+    public static void main(String[] args) {
+        Object sistemadao = DAOFactory.getSistemaDAO();
+        Object emuladordao = DAOFactory.getEmuladorDAO();
+        Object videojuegodao = DAOFactory.getVideojuegoDAO();
+        if(sistemadao instanceof SistemaDAOJPA){
+            System.out.println("SistemaDAO está bien");
+        } else {
+            System.out.println("SistemaDAO  no está bien");
+        }
+        if(emuladordao instanceof EmuladorDAOJPA){
+            System.out.println("EmuladorDAO está bien");
+        } else {
+            System.out.println("EmuladorDAO  no está bien");
+        }
+        if(videojuegodao instanceof VideojuegoDAOJPA){
+            System.out.println("videojuegodao está bien");
+        } else {
+            System.out.println("videojuegodao no está bien");
+        }
+    }
 }
