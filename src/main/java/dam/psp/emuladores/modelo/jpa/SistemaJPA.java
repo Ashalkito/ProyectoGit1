@@ -3,10 +3,7 @@ package dam.psp.emuladores.modelo.jpa;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.Videojuego;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,9 +14,9 @@ public class SistemaJPA implements Sistema, Serializable {
     @GeneratedValue
     private int id;
     private String nombre;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy = "sistema")
     private List<VideojuegoJPA> juegos;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy = "sistema")
     private List<EmuladorJPA> emuladores;
 
     public SistemaJPA(){
