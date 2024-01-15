@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="He añadido CascadeType.PERSIST a la propiedad 'sistema' de EmuladorJPA para intentar arreglar un error - lo borraré si no funciona">
+    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="Programa EmuladorDaoJpa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/VideojuegoDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/VideojuegoDAOJPA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,71 +37,18 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
   <component name="ProjectId" id="2afDzY60zmJKCEnDk7PuJ9Lez8h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.SistemaDAOJPA">
-    <configuration name="DAOFactory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dam.psp.emuladores.modelo.DAOFactory" />
-      <module name="ProyectoGit1.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dam.psp.emuladores.modelo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmuladorDAOJPA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dam.psp.emuladores.dao.jpa.EmuladorDAOJPA" />
-      <module name="ProyectoGit1.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dam.psp.emuladores.dao.jpa.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SistemaDAOJPA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dam.psp.emuladores.dao.jpa.SistemaDAOJPA" />
-      <module name="ProyectoGit1.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dam.psp.emuladores.dao.jpa.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.SistemaDAOJPA" />
-        <item itemvalue="Application.EmuladorDAOJPA" />
-        <item itemvalue="Application.DAOFactory" />
-      </list>
-    </recent_temporary>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -166,39 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704713362639</updated>
     </task>
-    <task id="LOCAL-00008" summary="Emulador: método abrir en proceso">
+    <task id="LOCAL-00008" summary="Programa EmuladorDaoJpa">
       <option name="closed" value="true" />
-      <created>1704714071754</created>
+      <created>1705309567161</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1704714071754</updated>
+      <updated>1705309567161</updated>
     </task>
-    <task id="LOCAL-00009" summary="Emulador: método abrir terminado">
-      <option name="closed" value="true" />
-      <created>1704714109887</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1704714109887</updated>
-    </task>
-    <task id="LOCAL-00010" summary="DAOFactory con tests">
-      <option name="closed" value="true" />
-      <created>1705305668063</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1705305668063</updated>
-    </task>
-    <task id="LOCAL-00011" summary="He añadido CascadeType.PERSIST a la propiedad 'sistema' de EmuladorJPA para intentar arreglar un error - lo borraré si no funciona">
-      <option name="closed" value="true" />
-      <created>1705310209305</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1705310209305</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,24 +141,7 @@
     <MESSAGE value="DAOFactory sin programar" />
     <MESSAGE value="DAOFactory programado" />
     <MESSAGE value="Emulador: método abrir en proceso" />
-    <MESSAGE value="Emulador: método abrir terminado" />
-    <MESSAGE value="DAOFactory con tests" />
-    <MESSAGE value="He añadido CascadeType.PERSIST a la propiedad 'sistema' de EmuladorJPA para intentar arreglar un error - lo borraré si no funciona" />
-    <option name="LAST_COMMIT_MESSAGE" value="He añadido CascadeType.PERSIST a la propiedad 'sistema' de EmuladorJPA para intentar arreglar un error - lo borraré si no funciona" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/CategoriaDAOJPA.java</url>
-          <line>31</line>
-          <properties class="dam.psp.emuladores.dao.jpa.CategoriaDAOJPA" method="getCategorias">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Programa EmuladorDaoJpa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Programa EmuladorDaoJpa" />
   </component>
 </project>
