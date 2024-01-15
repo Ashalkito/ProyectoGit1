@@ -1,4 +1,4 @@
-package dam.psp.emuladores.gui.interfaces;
+package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gui.controladores.ControladorPrincipal;
 import jakarta.persistence.EntityManager;

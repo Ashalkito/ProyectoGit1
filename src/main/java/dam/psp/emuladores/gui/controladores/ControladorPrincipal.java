@@ -1,7 +1,6 @@
 package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
-import dam.psp.emuladores.gui.interfaces.ControladorSecundario;
 import jakarta.persistence.EntityManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,7 +74,7 @@ public class ControladorPrincipal implements Initializable{
             stage.setResizable(false);
             stage.setScene(new Scene(root, 400, 107));
             ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(GestorEntityManager.getINSTANCIA().getEntityManager());
+            controlador.setEntityManager(this.em);
             controlador.setControladorPrincipal(this);
             controlador.setStage(stage);
             controlador.showStage();
@@ -97,7 +96,7 @@ public class ControladorPrincipal implements Initializable{
             stage.setResizable(false);
             stage.setScene(new Scene(root, 400, 212));
             ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(GestorEntityManager.getINSTANCIA().getEntityManager());
+            controlador.setEntityManager(this.em);
             controlador.setControladorPrincipal(this);
             controlador.setStage(stage);
             controlador.showStage();
@@ -119,7 +118,7 @@ public class ControladorPrincipal implements Initializable{
             stage.setResizable(false);
             stage.setScene(new Scene(root, 400, 107));
             ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(GestorEntityManager.getINSTANCIA().getEntityManager());
+            controlador.setEntityManager(this.em);
             controlador.setControladorPrincipal(this);
             controlador.setStage(stage);
             controlador.showStage();
@@ -141,7 +140,7 @@ public class ControladorPrincipal implements Initializable{
             stage.setResizable(false);
             stage.setScene(new Scene(root, 400, 212));
             ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(GestorEntityManager.getINSTANCIA().getEntityManager());
+            controlador.setEntityManager(this.em);
             controlador.setControladorPrincipal(this);
             controlador.setStage(stage);
             controlador.showStage();
