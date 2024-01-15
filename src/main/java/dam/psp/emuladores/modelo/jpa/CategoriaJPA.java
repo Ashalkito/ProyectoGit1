@@ -11,6 +11,10 @@ import java.util.List;
 
 @Entity
 public class CategoriaJPA implements Serializable {
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
     @Id
     @GeneratedValue
     private int id;
