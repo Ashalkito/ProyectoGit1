@@ -1,10 +1,7 @@
 package dam.psp.emuladores.modelo.jpa;
 
 import dam.psp.emuladores.modelo.Emulador;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -16,7 +13,7 @@ public class EmuladorJPA implements Emulador, Serializable {
     private String nombre;
     private String ruta;
     private String lineaComandos;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private SistemaJPA sistema;
     public EmuladorJPA(){}
 
