@@ -53,13 +53,13 @@ public class EmuladorDAOJPA implements EmuladorDAO {
                 .nuevoEmulador("neo geo","c","c", new SistemaJPA());
     }
     public static void ej2(){
-        List<EmuladorJPA> lista=new EmuladorDAOJPA().getEmuladores(new SistemaJPA());
+        List<EmuladorJPA> lista=new EmuladorDAOJPA().getEmuladores(new EmuladorJPA().getSistema());
         for(EmuladorJPA i:lista){
             System.out.println(i.getId()+" "
                     +i.getNombre()+" "
                     +i.getRuta()+" "
                     +i.getLineaComandos()+" "
-                    +i.getSistema().toString()
+                    +i.getSistema().getId()
             );
         }
     }
