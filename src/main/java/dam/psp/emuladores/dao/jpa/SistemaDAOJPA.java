@@ -45,4 +45,18 @@ public class SistemaDAOJPA implements SistemaDAO {
         }
         return resultado;
     }
+
+
+    public static void main(String[] args) {
+
+        //1
+        SistemaDAOJPA sistema = new SistemaDAOJPA();
+        sistema.nuevoSistema("game boy");
+        sistema.nuevoSistema("megadrive");
+        sistema.nuevoSistema("neo geo");
+        //2
+        for(SistemaJPA s: sistema.getSistema()){
+            System.out.println(s.getNombre()+" "+s.getEmuladores()+" "+s.getJuegos());
+        }
+    }
 }
