@@ -14,38 +14,35 @@ public class SistemaDAOJPA implements SistemaDAO {
 
     @Override
     public Sistema nuevoSistema(String nombre) {
-
-        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
         SistemaJPA s = new SistemaJPA();
-        s.setNombre(nombre);
+        if(s != null)
+        {
+            GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
+            s.setNombre(nombre);
 
-        try{
-            gm.getEntityManager().getTransaction().begin();
-            gm.getEntityManager().persist(s);
-            gm.getEntityManager().getTransaction().commit();
+            try{
+                gm.getEntityManager().getTransaction().begin();
+                gm.getEntityManager().persist(s);
+                gm.getEntityManager().getTransaction().commit();
 
-        }catch (Exception e){
-            e.getMessage();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
-
         return s;
     }
 
     @Override
     public List<SistemaJPA> getSistema() {
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-        List<SistemaJPA> l = new ArrayList<>();
+        List<SistemaJPA> resultado = new ArrayList<>();
 
         try{
-
-            TypedQuery<SistemaJPA> consulta = gm.getEntityManager().createQuery("SELECT c FROM SistemaJPA c",SistemaJPA.class);
-
-            List<SistemaJPA> l = consulta.getResultList();
+            resultado = gm.getEntityManager().createQuery("SELECT c FROM SistemaJPA c",SistemaJPA.class).getResultList();
 
         }catch (Exception e ){
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
-        return l;
-
+        return resultado;
     }
 }
