@@ -4,8 +4,10 @@ import dam.psp.emuladores.dao.EmuladorDAO;
 import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Sistema;
+import dam.psp.emuladores.modelo.jpa.CategoriaJPA;
 import dam.psp.emuladores.modelo.jpa.EmuladorJPA;
 import dam.psp.emuladores.modelo.jpa.SistemaJPA;
+import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +35,22 @@ public class EmuladorDAOJPA implements EmuladorDAO {
     }
     @Override
     public List<EmuladorJPA> getEmuladores(Sistema s) {
-        List<EmuladorJPA> lista=new ArrayList<>();
         GestorEntityManager gem=GestorEntityManager.getINSTANCIA();
-        lista=gem.getEntityManager()
+        return gem.getEntityManager()
                 .createQuery("Select emu from EmuladorJPA emu", EmuladorJPA.class)
                 .getResultList();
+    }
 
-        return lista;
+    public static void main(String[] args) {
+        ej1();
+    }
+    public static void ej1(){
+        Emulador e1=new EmuladorDAOJPA()
+                .nuevoEmulador("game boy","a","a",new SistemaJPA());
+        Emulador e2=new EmuladorDAOJPA()
+                .nuevoEmulador("megadrive","b","b", new SistemaJPA());
+        Emulador e3=new EmuladorDAOJPA()
+                .nuevoEmulador("neo geo","c","c", new SistemaJPA());
     }
 
 }
