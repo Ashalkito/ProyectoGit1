@@ -21,10 +21,10 @@
         <menus>
           <Menu fx:id="menuNuevo" mnemonicParsing="false" text="Nuevo">
             <items>
-                  <MenuItem fx:id="miVideojuego" mnemonicParsing="false" text="Videojuego" />
-              <MenuItem fx:id="miCategoria" mnemonicParsing="false" text="Categoría" />
-                  <MenuItem fx:id="miSistema" mnemonicParsing="false" text="Sistema" />
-                  <MenuItem fx:id="miEmulador" mnemonicParsing="false" text="Emulador" />
+                  <MenuItem fx:id="miVideojuego" mnemonicParsing="false" onAction="#pulsarVideojuego" text="Videojuego" />
+              <MenuItem fx:id="miCategoria" mnemonicParsing="false" onAction="#pulsarCategoria" text="Categoría" />
+                  <MenuItem fx:id="miSistema" mnemonicParsing="false" onAction="#pulsarSistema" text="Sistema" />
+                  <MenuItem fx:id="miEmulador" mnemonicParsing="false" onAction="#pulsarEmulador" text="Emulador" />
             </items>
           </Menu>
         </menus>
@@ -54,7 +54,7 @@
             <ChoiceBox fx:id="chbSistema" prefWidth="150.0" />
             <Label text="Categoría:" />
             <ChoiceBox fx:id="chbCategoria" prefWidth="150.0" />
-            <Button fx:id="btnBuscar" mnemonicParsing="false" prefWidth="100.0" text="Buscar">
+            <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#pulsarBuscar" prefWidth="100.0" text="Buscar">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></Button>
