@@ -7,7 +7,7 @@ public class GestorEntityManager {
     private static GestorEntityManager INSTANCIA;
     private EntityManager entityManager;
     private GestorEntityManager(){
-        entityManager= Persistence.createEntityManagerFactory("PU_CARRERAS").createEntityManager();
+        entityManager= Persistence.createEntityManagerFactory("PU_EMULADORES").createEntityManager();
     }
     public EntityManager getEntityManager(){
         return entityManager;
