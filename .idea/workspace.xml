@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="a">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="EmuladorDAOJPA cambios">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_01_2024_10_14__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Sistema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Videojuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/Videojuego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -41,6 +52,9 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2afDzY60zmJKCEnDk7PuJ9Lez8h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -49,7 +63,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/marin/IdeaProjects/TemaJPA",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -75,7 +92,39 @@
       <option name="project" value="LOCAL" />
       <updated>1704702082598</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="EmuladorJPA y SistemaJPA">
+      <option name="closed" value="true" />
+      <created>1704711617084</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704711617084</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cambios SistemaJPA (listas)">
+      <option name="closed" value="true" />
+      <created>1704712504564</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704712504564</updated>
+    </task>
+    <task id="LOCAL-00005" summary="toString en EmuladorJPA y SistemaJPA">
+      <option name="closed" value="true" />
+      <created>1704712739178</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704712739178</updated>
+    </task>
+    <task id="LOCAL-00006" summary="EmuladorDAOJPA cambios">
+      <option name="closed" value="true" />
+      <created>1704714878838</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704714878838</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,6 +140,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="EmuladorJPA y SistemaJPA" />
+    <MESSAGE value="Cambios SistemaJPA (listas)" />
+    <MESSAGE value="toString en EmuladorJPA y SistemaJPA" />
+    <MESSAGE value="EmuladorDAOJPA cambios" />
+    <option name="LAST_COMMIT_MESSAGE" value="EmuladorDAOJPA cambios" />
   </component>
 </project>
