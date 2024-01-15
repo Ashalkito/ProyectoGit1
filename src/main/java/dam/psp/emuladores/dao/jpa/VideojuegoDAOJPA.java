@@ -20,7 +20,7 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
     @Override
     public Videojuego nuevoVideojuego(String nombre, Sistema s, String rutaFoto, List<Categoria> c) {
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-       VideojuegoJPA video = null;
+        VideojuegoJPA video = null;
         for(Categoria i:c ) {
             if (s instanceof SistemaJPA && i instanceof CategoriaJPA) {
                 video = (VideojuegoJPA) nuevoVideojuego(nombre, s, rutaFoto, c);
@@ -39,7 +39,7 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
     }
 
     @Override
-    public List <VideojuegoJPA> getVideojuegos(String patron, Sistema s, Categoria c) {
+    public List<VideojuegoJPA> getVideojuegos(String patron, Sistema s, Categoria c) {
         List<VideojuegoJPA> listavideo = new ArrayList<>();
 
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
