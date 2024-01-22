@@ -28,10 +28,16 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
         VideojuegoJPA video = new VideojuegoJPA();
 
         for (Categoria i : c) {
-            if (s instanceof SistemaJPA && i instanceof CategoriaJPA) {
+            if (s instanceof SistemaJPA sistema && i instanceof CategoriaJPA categoria) {
                 try {
+                    List<CategoriaJPA> listacat = new ArrayList<>();
+                    listacat.add(categoria);
                     video.setNombre(nombre);
-
+                    video.setSistema(sistema);
+                    video.setCategorias(listacat);
+                    video.setNombre(nombre);
+                    video.setRutaFoto(rutaFoto);
+                    video.setRuta(rutaJuego);
                     gm.getEntityManager().getTransaction().begin();
                     gm.getEntityManager().persist(video);
                     gm.getEntityManager().getTransaction().commit();
