@@ -1,7 +1,9 @@
 package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
+import dam.psp.emuladores.modelo.Categoria;
 import dam.psp.emuladores.modelo.DAOFactory;
+import dam.psp.emuladores.modelo.Sistema;
 import jakarta.persistence.EntityManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,10 +33,10 @@ public class ControladorPrincipal implements Initializable{
     private Button btnBuscar;
 
     @FXML
-    private ChoiceBox<?> chbCategoria;
+    private ChoiceBox<Categoria> chbCategoria;
 
     @FXML
-    private ChoiceBox<?> chbSistema;
+    private ChoiceBox<Sistema> chbSistema;
 
     @FXML
     private GridPane gpn1;
@@ -59,6 +61,11 @@ public class ControladorPrincipal implements Initializable{
 
     @FXML
     void pulsarBuscar(ActionEvent event) {
+        DAOFactory.getVideojuegoDAO().getVideojuegos(
+                txfBuscador.getText(),
+                chbSistema.getSelectionModel().getSelectedItem(),
+                chbCategoria.getValue()
+                );
 
     }
 
