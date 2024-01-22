@@ -64,7 +64,6 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
         for(Categoria i:listacategoria){
             lvCategoria.getItems().add(i);
         }
-
     }
 
     public void btnExplorarVideoJuego(ActionEvent actionEvent) {
