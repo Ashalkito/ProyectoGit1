@@ -1,17 +1,20 @@
 package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
+import dam.psp.emuladores.modelo.Categoria;
 import dam.psp.emuladores.modelo.DAOFactory;
-import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
+import dam.psp.emuladores.modelo.Sistema;
 import jakarta.persistence.EntityManager;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.stage.Modality;
@@ -19,7 +22,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -31,19 +33,13 @@ public class ControladorPrincipal implements Initializable{
     private Button btnBuscar;
 
     @FXML
-    private ChoiceBox<?> chbCategoria;
+    private ChoiceBox<Categoria> chbCategoria;
 
     @FXML
-    private ChoiceBox<?> chbSistema;
+    private ChoiceBox<Sistema> chbSistema;
 
     @FXML
-    private TableColumn<VideojuegoJPA, String> colCategoria;
-
-    @FXML
-    private TableColumn<VideojuegoJPA, String> colNombre;
-
-    @FXML
-    private TableColumn<VideojuegoJPA, String> colSistema;
+    private GridPane gpn1;
 
     @FXML
     private Menu menuNuevo;
@@ -61,13 +57,15 @@ public class ControladorPrincipal implements Initializable{
     private MenuItem miVideojuego;
 
     @FXML
-    private TableView<VideojuegoJPA> tv;
-
-    @FXML
     private TextField txfBuscador;
 
     @FXML
     void pulsarBuscar(ActionEvent event) {
+        DAOFactory.getVideojuegoDAO().getVideojuegos(
+                txfBuscador.getText(),
+                chbSistema.getSelectionModel().getSelectedItem(),
+                chbCategoria.getValue()
+                );
 
     }
 
@@ -148,7 +146,7 @@ public class ControladorPrincipal implements Initializable{
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);
-            stage.setScene(new Scene(root, 400, 305));
+            stage.setScene(new Scene(root, 400, 212));
             ControladorSecundario controlador = carga.getController();
             controlador.setEntityManager(this.em);
             controlador.setControladorPrincipal(this);
@@ -164,15 +162,8 @@ public class ControladorPrincipal implements Initializable{
         em=GestorEntityManager.getINSTANCIA().getEntityManager();
         cargarCategorias();
         cargarSistemas();
-
-        List<VideojuegoJPA> listavideo = em.createQuery("Select V from VideojuegoJPA V").getResultList();
-
-        tv.getItems().addAll(listavideo);
-
-        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));//propiedad en Robot
-        colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));//propiedad en Robot
-        colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1,fila.getValue().getCategorias().toString().length()-1)));
-
+        chbCategoria.getSelectionModel().selectFirst();
+        chbSistema.getSelectionModel().selectFirst();
     }
 
     public void cargarCategorias(){
