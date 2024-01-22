@@ -33,11 +33,11 @@
       </MenuBar>
       <ScrollPane prefHeight="600.0" prefWidth="600.0">
          <content>
-            <TableView prefHeight="518.0" prefWidth="978.0">
+            <TableView fx:id="tv" prefHeight="518.0" prefWidth="978.0">
               <columns>
-                <TableColumn prefWidth="326.0" text="Nombre" />
-                <TableColumn prefWidth="326.0" text="Sistema" />
-                  <TableColumn prefWidth="326.0" text="Categoría" />
+                <TableColumn fx:id="colNombre" prefWidth="326.0" text="Nombre" />
+                <TableColumn fx:id="colSistema" prefWidth="326.0" text="Sistema" />
+                  <TableColumn fx:id="colCategoria" prefWidth="326.0" text="Categoría" />
               </columns>
             </TableView>
          </content>
