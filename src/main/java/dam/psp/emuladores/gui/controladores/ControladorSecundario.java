@@ -9,6 +9,26 @@ public class ControladorSecundario {
     private EntityManager em;
     private Stage stage;
 
+    public void setCp(ControladorPrincipal cp) {
+        this.cp = cp;
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
+    }
+
+    public ControladorPrincipal getCp() {
+        return cp;
+    }
+
+    public EntityManager getEm() {
+        return em;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
     public void setControladorPrincipal(ControladorPrincipal cp) {
         this.cp = cp;
     }
@@ -24,4 +44,6 @@ public class ControladorSecundario {
     public void showStage() {
         this.stage.show();
     }
+
+    public void closeStage() { this.stage.close();}
 }

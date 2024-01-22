@@ -12,20 +12,20 @@ import jakarta.persistence.EntityManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class VentanaVideojuego extends ControladorSecundario implements Initializable {
+
 
     @FXML
     private Button btnAceptar;
@@ -54,41 +54,53 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<SistemaJPA> listasistema = new ArrayList<>();
+        lvCategoria.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-        listasistema  = gm.getEntityManager().createQuery("SELECT s FROM SistemaJPA s").getResultList();
-        for(Sistema i:listasistema){
+        listasistema = gm.getEntityManager().createQuery("SELECT s FROM SistemaJPA s").getResultList();
+        for (Sistema i : listasistema) {
             chbSistemas.getItems().add(i);
         }
         List<CategoriaJPA> listacategoria = new ArrayList<>();
-        listacategoria  = gm.getEntityManager().createQuery("SELECT c FROM CategoriaJPA c").getResultList();
-        for(Categoria i:listacategoria){
+        listacategoria = gm.getEntityManager().createQuery("SELECT c FROM CategoriaJPA c").getResultList();
+        for (Categoria i : listacategoria) {
             lvCategoria.getItems().add(i);
         }
+
     }
 
     public void btnExplorarVideoJuego(ActionEvent actionEvent) {
-        FileChooser fc=new FileChooser();
+        FileChooser fc = new FileChooser();
         fc.setTitle("Elegir videojuego");
-        Stage stage=(Stage) btnExplorarJuego.getScene().getWindow();
+        Stage stage = (Stage) btnExplorarJuego.getScene().getWindow();
         File ubicacion = fc.showOpenDialog(stage);
-        if(ubicacion!=null){
+        if (ubicacion != null) {
             txfRutaJuego.setText(ubicacion.getAbsolutePath());
         }
     }
 
     public void btnExplorarCaratula(ActionEvent actionEvent) {
-        FileChooser fc=new FileChooser();
+        FileChooser fc = new FileChooser();
         fc.setTitle("Elegir caratula");
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imagenes","*.jpg","*.png","*.jpeg"));
-        Stage stage=(Stage) btnExplorarCaratula.getScene().getWindow();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imagenes", "*.jpg", "*.png", "*.jpeg"));
+        Stage stage = (Stage) btnExplorarCaratula.getScene().getWindow();
         File ubicacion = fc.showOpenDialog(stage);
-        if(ubicacion!=null){
+        if (ubicacion != null) {
             txfRutacaratula.setText(ubicacion.getAbsolutePath());
         }
     }
 
     public void btnAceptarVideoJuego(ActionEvent actionEvent) {
-        Videojuego vj=new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(),chbSistemas.getValue(),txfRutaJuego.getText(),txfRutacaratula.getText(),lvCategoria.getSelectionModel().getSelectedItems());
+        Videojuego vj = new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(), chbSistemas.getValue(), txfRutaJuego.getText(), txfRutacaratula.getText(), lvCategoria.getSelectionModel().getSelectedItems());
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.setTitle(new String("Nueva inserción".getBytes(), Charset.forName("UTF-8")));
+        alerta.setHeaderText(new String("¿Introducir nuevo videojuego?".getBytes(), Charset.forName("UTF-8")));
+        alerta.setContentText(new String("Se creará una nueva entrada en la base de datos.".getBytes(), Charset.forName("UTF-8")));
+
+        Optional<ButtonType> resultado = alerta.showAndWait();
+        if (resultado.isPresent() && resultado.get() == javafx.scene.control.ButtonType.OK && this.getStage()!=null) {
+            this.getCp().recargarVentana();
+            this.getStage().close();
+        }
     }
 }
 
