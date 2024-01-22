@@ -1,6 +1,7 @@
 package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
+import dam.psp.emuladores.modelo.DAOFactory;
 import jakarta.persistence.EntityManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -152,8 +153,16 @@ public class ControladorPrincipal implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         em=GestorEntityManager.getINSTANCIA().getEntityManager();
+        cargarCategorias();
+        cargarSistemas();
     }
 
+    public void cargarCategorias(){
+        chbCategoria.getItems().addAll(DAOFactory.getCategoriaDAO().getCategorias());
+    }
+    public void cargarSistemas(){
+        chbSistema.getItems().addAll(DAOFactory.getCategoriaDAO().getCategorias());
+    }
 }
 
 
