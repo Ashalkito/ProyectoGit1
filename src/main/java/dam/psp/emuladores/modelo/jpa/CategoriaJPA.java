@@ -1,5 +1,6 @@
 package dam.psp.emuladores.modelo.jpa;
 
+import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.Categoria;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,15 +21,12 @@ public class CategoriaJPA implements Serializable{
     @GeneratedValue
     private int id;
     private String nombre;
-    @ManyToMany
-    private List<VideojuegoJPA> juegos;
 
     public CategoriaJPA() {}
 
     public CategoriaJPA(int id, String nombre, List<VideojuegoJPA> juegos) {
         this.id = id;
         this.nombre = nombre;
-        this.juegos = new ArrayList<>();
     }
 
     public int getId() {
@@ -48,10 +46,11 @@ public class CategoriaJPA implements Serializable{
     }
 
     public List<VideojuegoJPA> getJuegos() {
-        return juegos;
+        List<VideojuegoJPA> lista = new ArrayList<>();
+        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
+        lista  = gm.getEntityManager().createQuery("SELECT v FROM VideojuegoJPA v").getResultList();
+        return lista;
+
     }
 
-    public void setJuegos(List<VideojuegoJPA> juegos) {
-        this.juegos = juegos;
-    }
 }
