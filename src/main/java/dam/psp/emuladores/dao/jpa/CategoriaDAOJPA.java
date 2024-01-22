@@ -18,7 +18,7 @@ public class CategoriaDAOJPA implements CategoriaDAO {
             EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
             em.getTransaction().begin();
             em.persist(cj);
-            em.close();
+            em.getTransaction().commit();
         }catch (Exception e){
             System.out.println("Fallo metodo nueva categoria");
             cj=null;

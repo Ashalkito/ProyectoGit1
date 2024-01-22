@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class ProgramasCategoria {
     public static void main(String[] args) {
         CategoriaDAO jd=DAOFactory.getCategoriaDAO();
-        jd.nuevaCategoria("Accion");
+        jd.nuevaCategoria("Plataformas");
         jd.nuevaCategoria("Romance");
         jd.nuevaCategoria("Terror");
         System.out.println("Para cargar las categorias");
