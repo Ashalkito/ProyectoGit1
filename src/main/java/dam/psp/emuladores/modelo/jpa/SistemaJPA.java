@@ -1,6 +1,5 @@
 package dam.psp.emuladores.modelo.jpa;
 
-import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.Videojuego;
@@ -15,9 +14,14 @@ public class SistemaJPA implements Sistema, Serializable {
     @GeneratedValue
     private int id;
     private String nombre;
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy = "sistema")
+    private List<VideojuegoJPA> juegos;
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy = "sistema")
+    private List<EmuladorJPA> emuladores;
 
     public SistemaJPA(){
-
+        juegos=new ArrayList<>();
+        emuladores=new ArrayList<>();
     }
 
     @Override
@@ -39,17 +43,19 @@ public class SistemaJPA implements Sistema, Serializable {
     }
 
     public List<VideojuegoJPA> getJuegos() {
-        List<VideojuegoJPA> lista = new ArrayList<>();
-        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-        lista  = gm.getEntityManager().createQuery("SELECT v FROM VideojuegoJPA v").getResultList();
-        return lista;
+        return juegos;
+    }
+
+    public void setJuegos(List<VideojuegoJPA> juegos) {
+        this.juegos = juegos;
     }
 
     public List<EmuladorJPA> getEmuladores() {
-        List<EmuladorJPA> lista = new ArrayList<>();
-        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-        lista  = gm.getEntityManager().createQuery("SELECT e FROM EmuladorJPA e").getResultList();
-        return lista;
+        return emuladores;
+    }
+
+    public void setEmuladores(List<EmuladorJPA> emuladores) {
+        this.emuladores = emuladores;
     }
 
     @Override

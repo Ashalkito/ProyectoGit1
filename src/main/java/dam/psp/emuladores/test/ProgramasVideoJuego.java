@@ -26,12 +26,12 @@ public class ProgramasVideoJuego {
          SistemaDAOJPA y EmuladorDAOJPA. Asocialos a categorías añadidas en el test
          de la clase CategoriaDAOJPA*/
 
-        String ruta = null;
+        /*String ruta = null;
         String rutafoto=null;
         List<Categoria> categorias = DAOFactory.getCategoriaDAO().getCategorias();
-        Videojuego video1 = new VideojuegoDAOJPA().nuevoVideojuego("Los Sims",new SistemaJPA(),rutafoto,ruta,categorias);
-        Videojuego video2 = new VideojuegoDAOJPA().nuevoVideojuego("Tetric",new SistemaJPA(),rutafoto,ruta,categorias);
-        Videojuego video3= new VideojuegoDAOJPA().nuevoVideojuego("Packman",new SistemaJPA(),rutafoto,ruta,categorias);
+        Videojuego video1 = new VideojuegoDAOJPA().nuevoVideojuego("Los Sims",new SistemaJPA(),ruta,categorias);
+        Videojuego video2 = new VideojuegoDAOJPA().nuevoVideojuego("Tetric",new SistemaJPA(),ruta,categorias);
+        Videojuego video3= new VideojuegoDAOJPA().nuevoVideojuego("Packman",new SistemaJPA(),ruta,categorias);*/
 
     }
 
