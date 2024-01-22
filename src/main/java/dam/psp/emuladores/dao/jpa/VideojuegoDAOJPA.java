@@ -56,21 +56,30 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
     public List<VideojuegoJPA> getVideojuegos(String patron, Sistema s, Categoria c) {
         List<VideojuegoJPA> listavideo = new ArrayList<>();
 
-        String jpql="";
-        jpql= "SELECT * FROM VideoJuegoJPA, CategoriaJPA, SistemaJPA WHERE 1=1";
-        if(patron !=null){
-            jpql= "AND SELECT c FROM VideoJuegoJPA c WHERE c.nombre LIKE '% :patron_parametro %'";
-        }else if(s != null){
-            jpql= "AND SELECT c FROM SistemaJPA c WHERE c.nombre LIKE '% :s_parametro%' ";
-        } else if (c != null) {
-            jpql= "AND SELECT c FROM SistemaJPA c WHERE c.nombre LIKE '% :c_parametro %' ";
+
+        String jpql= "SELECT c FROM VideoJuegoJPA c";
+
+        if (patron==null || s==null || c==null){
+            jpql.concat(" WHERE ");
         }
+
+        String vi="c.nombre LIKE '%"+patron+"%'";
+        String si="c.sistema_id = '"+s.getId()+"' ";
+        String ca="id IN ( SELECT videojuegoJPA_id FROM videojuegojpa_categoriajpa WHERE categorias_id = '"+c.getId()+"' )";
+
+        if(patron !=null){
+            jpql.concat(vi);
+        }
+        if(s != null){
+            jpql.concat(si);
+        }
+        if (c != null) {
+            jpql.concat(ca);
+        }
+
         EntityManager gm= GestorEntityManager.getINSTANCIA().getEntityManager();
 
-        listavideo=gm.createQuery(jpql,VideojuegoJPA.class )
-                .setParameter("patron_parametro",patron)
-                .setParameter("s_parametro",s)
-                .setParameter("c_parametro",c)
+        listavideo=gm.createQuery(jpql,VideojuegoJPA.class)
                 .getResultList();
 
         return listavideo;
