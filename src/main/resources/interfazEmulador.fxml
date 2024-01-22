@@ -36,7 +36,7 @@
                   <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <TextField fx:id="txfRutaInstalacion" prefHeight="25.0" prefWidth="161.0" />
-                        <Button fx:id="btnExplorarInstalacion" mnemonicParsing="false" text="Explorar" />
+                        <Button fx:id="btnExplorarInstalacion" onAction="#btnExplorarEmulador" mnemonicParsing="false" text="Explorar" />
                      </children>
                   </HBox>
                   <TextField fx:id="txfLineaComandos" />
@@ -50,7 +50,7 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnAceptar" mnemonicParsing="false" text="Aceptar" />
+            <Button fx:id="btnAceptar" onAction="#btnAceptarEmulador" mnemonicParsing="false" text="Aceptar" />
          </children>
       </HBox>
    </children>
