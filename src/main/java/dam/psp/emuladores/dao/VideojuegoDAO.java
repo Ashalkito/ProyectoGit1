@@ -7,6 +7,6 @@ import dam.psp.emuladores.modelo.Videojuego;
 import java.util.List;
 
 public interface VideojuegoDAO {
-    public Videojuego nuevoVideojuego(String nombre, Sistema s, String rutaFoto, List<Categoria> c);
+    public Videojuego nuevoVideojuego(String nombre, Sistema s,String rutaJuego, String rutaFoto, List<Categoria> c);
     public <T extends Videojuego> List<T> getVideojuegos(String patron, Sistema s, Categoria c);
 }

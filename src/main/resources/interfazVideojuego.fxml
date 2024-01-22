@@ -36,13 +36,13 @@
                   <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <TextField fx:id="txfRutaJuego" prefHeight="25.0" prefWidth="161.0" />
-                        <Button fx:id="btnExplorarJuego" mnemonicParsing="false" text="Explorar" />
+                        <Button fx:id="btnExplorarJuego" onAction="#btnExplorarVideoJuego" mnemonicParsing="false" text="Explorar" />
                      </children>
                   </HBox>
                   <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <TextField fx:id="txfRutacaratula" prefHeight="25.0" prefWidth="161.0" />
-                        <Button fx:id="btnExplorarCaratula" mnemonicParsing="false" text="Explorar" />
+                        <Button fx:id="btnExplorarCaratula" onAction="#btnExplorarCaratula" mnemonicParsing="false" text="Explorar" />
                      </children>
                   </HBox>
                   <ChoiceBox fx:id="chbCategorias" prefWidth="230.0" />
@@ -55,7 +55,7 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnAceptar" mnemonicParsing="false" text="Aceptar" />
+            <Button fx:id="btnAceptar" onAction="#btnAceptarVideoJuego" mnemonicParsing="false" text="Aceptar" />
          </children>
       </HBox>
    </children>

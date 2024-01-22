@@ -1,5 +1,9 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.dao.CategoriaDAO;
+import dam.psp.emuladores.dao.jpa.CategoriaDAOJPA;
+import dam.psp.emuladores.modelo.Categoria;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,8 +22,11 @@ public class VentanaCategoria extends ControladorSecundario implements Initializ
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        btnAceptar.setText("Aceptar");
     }
 
+    public void btnAceptarCategoria(ActionEvent actionEvent) {
+        Categoria c= new CategoriaDAOJPA().nuevaCategoria(txfNombre.getText());
+    }
 }
 
