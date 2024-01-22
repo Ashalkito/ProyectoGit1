@@ -2,17 +2,16 @@ package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.DAOFactory;
+import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
 import jakarta.persistence.EntityManager;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.stage.Modality;
@@ -20,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -37,7 +37,13 @@ public class ControladorPrincipal implements Initializable{
     private ChoiceBox<?> chbSistema;
 
     @FXML
-    private GridPane gpn1;
+    private TableColumn<VideojuegoJPA, String> colCategoria;
+
+    @FXML
+    private TableColumn<VideojuegoJPA, String> colNombre;
+
+    @FXML
+    private TableColumn<VideojuegoJPA, String> colSistema;
 
     @FXML
     private Menu menuNuevo;
@@ -53,6 +59,9 @@ public class ControladorPrincipal implements Initializable{
 
     @FXML
     private MenuItem miVideojuego;
+
+    @FXML
+    private TableView<VideojuegoJPA> tv;
 
     @FXML
     private TextField txfBuscador;
@@ -155,8 +164,15 @@ public class ControladorPrincipal implements Initializable{
         em=GestorEntityManager.getINSTANCIA().getEntityManager();
         cargarCategorias();
         cargarSistemas();
-        chbCategoria.getSelectionModel().selectFirst();
-        chbSistema.getSelectionModel().selectFirst();
+
+        List<VideojuegoJPA> listavideo = em.createQuery("Select V from VideojuegoJPA V").getResultList();
+
+        tv.getItems().addAll(listavideo);
+
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));//propiedad en Robot
+        colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));//propiedad en Robot
+        colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1,fila.getValue().getCategorias().toString().length()-1)));
+
     }
 
     public void cargarCategorias(){

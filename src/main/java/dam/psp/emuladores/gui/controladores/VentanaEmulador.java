@@ -49,7 +49,7 @@ public class VentanaEmulador extends ControladorSecundario implements Initializa
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
         lista  = gm.getEntityManager().createQuery("SELECT s FROM SistemaJPA s").getResultList();
         for(Sistema i : lista){
-            chbSistemas.set
+            //chbSistemas.set
         }
     }
 
