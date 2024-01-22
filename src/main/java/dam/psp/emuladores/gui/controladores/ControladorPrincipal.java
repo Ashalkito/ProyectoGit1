@@ -173,5 +173,18 @@ public class ControladorPrincipal implements Initializable{
         chbSistema.getItems().addAll(DAOFactory.getSistemaDAO().getSistema());
     }
 }
+/* public void initialize(URL location, ResourceBundle resources) {
+        em=GestorEntityManager.getINSTANCIA().getEntityManager();
+        cargarCategorias();
+        cargarSistemas();
 
+        List<VideojuegoJPA> listavideo = em.createQuery("Select V from VideojuegoJPA V").getResultList();
+
+        tv.getItems().addAll(listavideo);
+
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));//propiedad en Robot
+        colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));//propiedad en Robot
+        colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1,fila.getValue().getCategorias().toString().length()-1)));
+
+    }*/
 
