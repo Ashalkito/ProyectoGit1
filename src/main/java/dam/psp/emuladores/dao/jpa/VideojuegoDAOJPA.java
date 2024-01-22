@@ -25,20 +25,22 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
     @Override
     public Videojuego nuevoVideojuego(String nombre, Sistema s, String rutaJuego, String rutaFoto, List<Categoria> c) {
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-        VideojuegoJPA video = null;
+        VideojuegoJPA video = new VideojuegoJPA();
 
         for (Categoria i : c) {
             if (s instanceof SistemaJPA && i instanceof CategoriaJPA) {
-                video = (VideojuegoJPA) nuevoVideojuego(nombre, s,rutaJuego, rutaFoto, c);
+                try {
+                    video.setNombre(nombre);
+
+                    gm.getEntityManager().getTransaction().begin();
+                    gm.getEntityManager().persist(video);
+                    gm.getEntityManager().getTransaction().commit();
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             } else {
-                throw new IllegalArgumentException("error");
-            }
-            try {
-                gm.getEntityManager().getTransaction().begin();
-                gm.getEntityManager().persist(video);
-                gm.getEntityManager().getTransaction().commit();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+                throw new IllegalArgumentException("Los parámetros no se pueden guardar en la base de datos");
             }
         }
         return video;
