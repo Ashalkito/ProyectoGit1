@@ -148,7 +148,7 @@ public class ControladorPrincipal implements Initializable{
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);
-            stage.setScene(new Scene(root, 400, 212));
+            stage.setScene(new Scene(root, 400, 305));
             ControladorSecundario controlador = carga.getController();
             controlador.setEntityManager(this.em);
             controlador.setControladorPrincipal(this);

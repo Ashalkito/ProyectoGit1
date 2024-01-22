@@ -1,19 +1,27 @@
 package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.dao.jpa.VideojuegoDAOJPA;
+import dam.psp.emuladores.gestores.GestorEntityManager;
+import dam.psp.emuladores.modelo.Categoria;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.Videojuego;
+import dam.psp.emuladores.modelo.jpa.SistemaJPA;
+import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
+import jakarta.persistence.EntityManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VentanaVideojuego extends ControladorSecundario implements Initializable {
@@ -28,7 +36,10 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
     private Button btnExplorarJuego;
 
     @FXML
-    private ChoiceBox<Sistema> chbCategorias;
+    private ChoiceBox<Sistema> chbSistemas;
+
+    @FXML
+    private ListView<Categoria> lvCategoria;
 
     @FXML
     private TextField txfNombre;
@@ -41,7 +52,12 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        List<SistemaJPA> lista = new ArrayList<>();
+        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
+        lista  = gm.getEntityManager().createQuery("SELECT s FROM SistemaJPA s").getResultList();
+        for(Sistema i:lista){
+            chbSistemas.getItems().add(i);
+        }
     }
 
     public void btnExplorarVideoJuego(ActionEvent actionEvent) {
@@ -66,7 +82,7 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
     }
 
     public void btnAceptarVideoJuego(ActionEvent actionEvent) {
-        //Videojuego vj=new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(),chbCategorias.getValue(),txfRutacaratula.getText(),)
+        Videojuego vj=new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(),chbSistemas.getValue(),txfRutaJuego.getText(),txfRutacaratula.getText(),null);
     }
 }
 
