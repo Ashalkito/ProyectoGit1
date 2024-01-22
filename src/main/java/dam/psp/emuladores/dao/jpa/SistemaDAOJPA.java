@@ -51,9 +51,9 @@ public class SistemaDAOJPA implements SistemaDAO {
 
         //1
         SistemaDAOJPA sistema = new SistemaDAOJPA();
-        sistema.nuevoSistema("game boy");
+        /*sistema.nuevoSistema("game boy");
         sistema.nuevoSistema("megadrive");
-        sistema.nuevoSistema("neo geo");
+        sistema.nuevoSistema("neo geo");*/
         //2
         for(SistemaJPA s: sistema.getSistema()){
             System.out.println(s.getNombre()+" "+s.getEmuladores()+" "+s.getJuegos());

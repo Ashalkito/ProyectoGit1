@@ -155,13 +155,15 @@ public class ControladorPrincipal implements Initializable{
         em=GestorEntityManager.getINSTANCIA().getEntityManager();
         cargarCategorias();
         cargarSistemas();
+        chbCategoria.getSelectionModel().selectFirst();
+        chbSistema.getSelectionModel().selectFirst();
     }
 
     public void cargarCategorias(){
         chbCategoria.getItems().addAll(DAOFactory.getCategoriaDAO().getCategorias());
     }
     public void cargarSistemas(){
-        chbSistema.getItems().addAll(DAOFactory.getCategoriaDAO().getCategorias());
+        chbSistema.getItems().addAll(DAOFactory.getSistemaDAO().getSistema());
     }
 }
 

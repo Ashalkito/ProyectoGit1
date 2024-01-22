@@ -12,20 +12,18 @@ import java.util.List;
 public class CategoriaDAOJPA implements CategoriaDAO {
     @Override
     public Categoria nuevaCategoria(String n) {
-        Categoria c;
+        CategoriaJPA cj=new CategoriaJPA();
         try {
-            CategoriaJPA cj=new CategoriaJPA();
             cj.setNombre(n);
-            c= (Categoria) cj;
             EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
             em.getTransaction().begin();
-            em.persist(c);
-            em.close();
+            em.persist(cj);
+            em.getTransaction().commit();
         }catch (Exception e){
             System.out.println("Fallo metodo nueva categoria");
-            c=null;
+            cj=null;
         }
-        return c;
+        return cj;
     }
 
     @Override

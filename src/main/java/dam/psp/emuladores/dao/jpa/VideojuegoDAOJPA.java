@@ -21,14 +21,15 @@ import java.util.Scanner;
 public class VideojuegoDAOJPA implements VideojuegoDAO {
     public VideojuegoDAOJPA() {
     }
-    @Override
-    public Videojuego nuevoVideojuego(String nombre, Sistema s, String rutaFoto, List<Categoria> c) {
-        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-       VideojuegoJPA video = null;
 
-        for(Categoria i:c ) {
+    @Override
+    public Videojuego nuevoVideojuego(String nombre, Sistema s, String rutaJuego, String rutaFoto, List<Categoria> c) {
+        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
+        VideojuegoJPA video = null;
+
+        for (Categoria i : c) {
             if (s instanceof SistemaJPA && i instanceof CategoriaJPA) {
-                video = (VideojuegoJPA) nuevoVideojuego(nombre, s, rutaFoto, c);
+                video = (VideojuegoJPA) nuevoVideojuego(nombre, s,rutaJuego, rutaFoto, c);
             } else {
                 throw new IllegalArgumentException("error");
             }
@@ -44,16 +45,15 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
     }
 
     @Override
-    public List <VideojuegoJPA> getVideojuegos(String patron, Sistema s, Categoria c) {
+    public List<VideojuegoJPA> getVideojuegos(String patron, Sistema s, Categoria c) {
         List<VideojuegoJPA> listavideo = new ArrayList<>();
 
-            GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
+        GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
 
-            listavideo =gm.getEntityManager().createQuery("Select e from Emuladores where nombre like '%patron%' and sistema like '%s%' and categoria like '%c%' ").getResultList();
+        listavideo = gm.getEntityManager().createQuery("Select e from Emuladores where nombre like '%patron%' and sistema like '%s%' and categoria like '%c%' ").getResultList();
 
-            gm.getEntityManager().find(VideojuegoDAO.class, listavideo);
+        gm.getEntityManager().find(VideojuegoDAO.class, listavideo);
 
-            return listavideo;
+        return listavideo;
     }
-
 }

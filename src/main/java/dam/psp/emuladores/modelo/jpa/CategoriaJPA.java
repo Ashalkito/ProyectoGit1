@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class CategoriaJPA implements Serializable{
+public class CategoriaJPA implements Serializable,Categoria{
     @Override
     public String toString() {
         return this.nombre;
