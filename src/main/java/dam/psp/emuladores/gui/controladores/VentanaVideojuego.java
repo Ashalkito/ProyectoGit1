@@ -89,7 +89,7 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
     }
 
     public void btnAceptarVideoJuego(ActionEvent actionEvent) {
-        Videojuego vj=new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(),chbSistemas.getValue(),txfRutaJuego.getText(),txfRutacaratula.getText(),null);
+        Videojuego vj=new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(),chbSistemas.getValue(),txfRutaJuego.getText(),txfRutacaratula.getText(),lvCategoria.getSelectionModel().getSelectedItems());
     }
 }
 
