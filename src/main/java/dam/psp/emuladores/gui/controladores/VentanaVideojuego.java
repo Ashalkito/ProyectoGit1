@@ -5,6 +5,7 @@ import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.Categoria;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.Videojuego;
+import dam.psp.emuladores.modelo.jpa.CategoriaJPA;
 import dam.psp.emuladores.modelo.jpa.SistemaJPA;
 import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
 import jakarta.persistence.EntityManager;
@@ -52,12 +53,18 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        List<SistemaJPA> lista = new ArrayList<>();
+        List<SistemaJPA> listasistema = new ArrayList<>();
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
-        lista  = gm.getEntityManager().createQuery("SELECT s FROM SistemaJPA s").getResultList();
-        for(Sistema i:lista){
+        listasistema  = gm.getEntityManager().createQuery("SELECT s FROM SistemaJPA s").getResultList();
+        for(Sistema i:listasistema){
             chbSistemas.getItems().add(i);
         }
+        List<CategoriaJPA> listacategoria = new ArrayList<>();
+        listacategoria  = gm.getEntityManager().createQuery("SELECT c FROM CategoriaJPA c").getResultList();
+        for(Categoria i:listacategoria){
+            lvCategoria.getItems().add(i);
+        }
+
     }
 
     public void btnExplorarVideoJuego(ActionEvent actionEvent) {
