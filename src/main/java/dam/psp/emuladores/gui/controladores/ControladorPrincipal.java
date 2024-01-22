@@ -186,5 +186,5 @@ public class ControladorPrincipal implements Initializable{
         colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));//propiedad en Robot
         colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1,fila.getValue().getCategorias().toString().length()-1)));
 
-    }*/
+    } */
 
