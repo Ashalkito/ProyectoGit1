@@ -1,7 +1,10 @@
 package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
+import dam.psp.emuladores.modelo.Categoria;
 import dam.psp.emuladores.modelo.DAOFactory;
+import dam.psp.emuladores.modelo.Sistema;
+import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
 import jakarta.persistence.EntityManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,10 +34,10 @@ public class ControladorPrincipal implements Initializable{
     private Button btnBuscar;
 
     @FXML
-    private ChoiceBox<?> chbCategoria;
+    private ChoiceBox<Categoria> chbCategoria;
 
     @FXML
-    private ChoiceBox<?> chbSistema;
+    private ChoiceBox<Sistema> chbSistema;
 
     @FXML
     private GridPane gpn1;
@@ -55,11 +58,13 @@ public class ControladorPrincipal implements Initializable{
     private MenuItem miVideojuego;
 
     @FXML
-    private TextField txfBuscador;
+    private TextField txtBuscador;
 
     @FXML
     void pulsarBuscar(ActionEvent event) {
 
+        DAOFactory.getVideojuegoDAO().getVideojuegos(
+                txtBuscador.getText(),chbSistema.getValue(),chbCategoria.getSelectionModel().getSelectedItem());
     }
 
     @FXML
@@ -153,18 +158,8 @@ public class ControladorPrincipal implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         em=GestorEntityManager.getINSTANCIA().getEntityManager();
-        cargarCategorias();
-        cargarSistemas();
-        chbCategoria.getSelectionModel().selectFirst();
-        chbSistema.getSelectionModel().selectFirst();
     }
 
-    public void cargarCategorias(){
-        chbCategoria.getItems().addAll(DAOFactory.getCategoriaDAO().getCategorias());
-    }
-    public void cargarSistemas(){
-        chbSistema.getItems().addAll(DAOFactory.getSistemaDAO().getSistema());
-    }
 }
 
 
