@@ -50,7 +50,6 @@ public class CategoriaJPA implements Serializable,Categoria{
         GestorEntityManager gm = GestorEntityManager.getINSTANCIA();
         lista  = gm.getEntityManager().createQuery("SELECT v FROM VideojuegoJPA v").getResultList();
         return lista;
-
     }
 
 }
