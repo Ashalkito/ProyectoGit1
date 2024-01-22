@@ -1,5 +1,9 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.dao.SistemaDAO;
+import dam.psp.emuladores.dao.jpa.SistemaDAOJPA;
+import dam.psp.emuladores.modelo.Sistema;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,8 +22,11 @@ public class VentanaSistema extends ControladorSecundario implements Initializab
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        btnAceptar.setText("Aceptar");
     }
 
+    public void btnAceptarSistema(ActionEvent actionEvent) {
+        Sistema sistema = new SistemaDAOJPA().nuevoSistema(txfNombre.getText());
+    }
 }
 

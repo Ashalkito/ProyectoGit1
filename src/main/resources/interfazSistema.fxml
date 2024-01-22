@@ -24,7 +24,7 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="380.0">
          <children>
-            <Button fx:id="btnAceptar" alignment="BOTTOM_RIGHT" mnemonicParsing="false" text="Aceptar" />
+            <Button fx:id="btnAceptar" onAction="#btnAceptarSistema" alignment="BOTTOM_RIGHT" mnemonicParsing="false" text="Aceptar" />
          </children>
       </HBox>
    </children>
