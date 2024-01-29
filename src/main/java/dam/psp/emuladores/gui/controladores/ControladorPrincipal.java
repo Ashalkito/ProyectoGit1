@@ -180,6 +180,19 @@ public class ControladorPrincipal implements Initializable {
 
         recargarVentana();
 
+        tv.setOnMouseClicked(e->{
+            if(e.getClickCount()==2){
+                try {
+                    FXMLLoader carga= new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
+                    Parent root = carga.load();
+                    Stage stage=new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException error) {
+                    System.out.println(error.getMessage());
+                }
+            }
+        });
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));
         colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1, fila.getValue().getCategorias().toString().length() - 1)));

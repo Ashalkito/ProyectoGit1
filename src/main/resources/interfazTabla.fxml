@@ -31,6 +31,6 @@
             <CheckBox fx:id="chkGrabar" mnemonicParsing="false" prefHeight="17.0" prefWidth="133.0" text="Grabar en vídeo" />
          </children>
       </HBox>
-      <Button fx:id="btnJugar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="100.0" prefWidth="522.0" text="Jugar" />
+      <Button fx:id="btnJugar" onAction="#btnJugarJuego" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="100.0" prefWidth="522.0" text="Jugar" />
    </children>
 </VBox>

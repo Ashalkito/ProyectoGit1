@@ -1,5 +1,9 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.modelo.jpa.EmuladorJPA;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -20,7 +24,7 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     private CheckBox chkGrabar;
 
     @FXML
-    private ComboBox<?> cmbEmulador;
+    private ComboBox<String> cmbEmulador;
 
     @FXML
     private ImageView imgImagen;
@@ -31,5 +35,8 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void btnJugarJuego(ActionEvent actionEvent) {
     }
 }
