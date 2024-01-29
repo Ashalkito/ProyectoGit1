@@ -27,6 +27,8 @@ public class VentanaCategoria extends ControladorSecundario implements Initializ
 
     public void btnAceptarCategoria(ActionEvent actionEvent) {
         Categoria c= new CategoriaDAOJPA().nuevaCategoria(txfNombre.getText());
+        this.getCp().recargarVentana();
+        this.getStage().close();
     }
 }
 

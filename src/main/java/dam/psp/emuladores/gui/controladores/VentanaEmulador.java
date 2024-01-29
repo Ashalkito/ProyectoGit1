@@ -66,6 +66,8 @@ public class VentanaEmulador extends ControladorSecundario implements Initializa
     public void btnAceptarEmulador(ActionEvent actionEvent) {
         Emulador emulador = new EmuladorDAOJPA().nuevoEmulador(txfNombre.getText(),txfRutaInstalacion.getText(),txfLineaComandos
                 .getText(),chbSistemas.getValue());
+        this.getCp().recargarVentana();
+        this.getStage().close();
     }
 
 }
