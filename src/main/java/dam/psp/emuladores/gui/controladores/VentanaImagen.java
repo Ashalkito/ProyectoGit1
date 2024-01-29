@@ -42,8 +42,8 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cmbEmulador.getItems().addAll(DAOFactory.getEmuladorDAO().getEmuladores(sis));
-        Image image = new Image(rutafoto);
-        imgImagen.setImage(image);
+        //Image image = new Image(rutafoto);
+        //imgImagen.setImage(image);
     }
 
     public void setSis(Sistema sis) {
