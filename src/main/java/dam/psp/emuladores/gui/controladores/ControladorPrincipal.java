@@ -186,6 +186,8 @@ public class ControladorPrincipal implements Initializable {
                 try {
                     FXMLLoader carga= new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
                     Parent root = carga.load();
+                    VentanaImagen vi=carga.getController();
+                    vi.setSis(tv.getSelectionModel().getSelectedItem().getSistema());
                     Stage stage=new Stage();
                     stage.setScene(new Scene(root));
                     stage.show();
