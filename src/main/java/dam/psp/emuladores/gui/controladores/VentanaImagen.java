@@ -1,6 +1,8 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.DAOFactory;
+import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.jpa.EmuladorJPA;
 import jakarta.persistence.Entity;
@@ -17,6 +19,7 @@ import javafx.scene.image.ImageView;
 
 import javax.imageio.ImageIO;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VentanaImagen extends ControladorSecundario implements Initializable {
@@ -28,7 +31,7 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     private CheckBox chkGrabar;
 
     @FXML
-    private ComboBox<String> cmbEmulador;
+    private ComboBox<Emulador> cmbEmulador;
 
     @FXML
     private ImageView imgImagen;
@@ -41,9 +44,13 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cmbEmulador.getItems().addAll(DAOFactory.getEmuladorDAO().getEmuladores(sis));
-        //Image image = new Image(rutafoto);
-        //imgImagen.setImage(image);
+        GestorEntityManager em = GestorEntityManager.getINSTANCIA();
+        em.getEntityManager().getTransaction().begin();
+        List<Emulador> emuladores = em.getEntityManager().createQuery("Select e from EmuladorJPA e").getResultList();
+        em.getEntityManager().getTransaction().commit();
+        cmbEmulador.getItems().addAll(emuladores);
+
+
     }
 
     public void setSis(Sistema sis) {
