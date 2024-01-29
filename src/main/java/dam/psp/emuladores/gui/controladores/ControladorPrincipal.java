@@ -8,6 +8,7 @@ import dam.psp.emuladores.modelo.Videojuego;
 import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
 import jakarta.persistence.EntityManager;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -71,7 +72,6 @@ public class ControladorPrincipal implements Initializable {
 
     @FXML
     private TableView<Videojuego> tv;
-    private VentanaImagen controladorImagen;
 
     @FXML
     void pulsarBuscar(ActionEvent event) {
@@ -186,15 +186,8 @@ public class ControladorPrincipal implements Initializable {
                 try {
                     FXMLLoader carga= new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
                     Parent root = carga.load();
-
-                    this.controladorImagen=carga.getController();
-                    this.controladorImagen.setControladorPrincipal(this);
-
-
-                    ControladorSecundario controlador = carga.getController();
-                    controlador.setEntityManager(this.em);
-                    controlador.setControladorPrincipal(this);
-
+                    VentanaImagen vi=carga.getController();
+                    vi.setSis(tv.getSelectionModel().getSelectedItem().getSistema());
                     Stage stage=new Stage();
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -206,7 +199,6 @@ public class ControladorPrincipal implements Initializable {
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));
         colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1, fila.getValue().getCategorias().toString().length() - 1)));
-
     }
 
 
@@ -219,11 +211,13 @@ public class ControladorPrincipal implements Initializable {
     }
 
     public void recargarVentana() {
-        tv.getItems().removeAll();
+        tv.getItems().clear();
         em.getTransaction().begin();
         List<Videojuego> listavideo = em.createQuery("Select V from VideojuegoJPA V").getResultList();
         em.getTransaction().commit();
         tv.getItems().addAll(listavideo);
+
     }
 }
+
 
