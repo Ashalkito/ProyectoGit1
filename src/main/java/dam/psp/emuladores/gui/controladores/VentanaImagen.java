@@ -1,5 +1,7 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.modelo.DAOFactory;
+import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.jpa.EmuladorJPA;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
@@ -13,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VentanaImagen extends ControladorSecundario implements Initializable {
@@ -32,11 +36,21 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     @FXML
     private Label lblTitulo1;
 
+    private ControladorPrincipal controladorprincipal;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        List<Sistema> s=new ArrayList<>();
+
+        cmbEmulador.getItems().addAll(DAOFactory.getEmuladorDAO().getEmuladores());
+
+
 
     }
 
+    public void setControladorPrincipal(ControladorPrincipal controlador){
+        this.controladorprincipal=controlador;
+    }
     public void btnJugarJuego(ActionEvent actionEvent) {
     }
 }

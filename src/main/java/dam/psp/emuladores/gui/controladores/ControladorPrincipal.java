@@ -71,6 +71,7 @@ public class ControladorPrincipal implements Initializable {
 
     @FXML
     private TableView<Videojuego> tv;
+    private VentanaImagen controladorImagen;
 
     @FXML
     void pulsarBuscar(ActionEvent event) {
@@ -185,6 +186,15 @@ public class ControladorPrincipal implements Initializable {
                 try {
                     FXMLLoader carga= new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
                     Parent root = carga.load();
+
+                    this.controladorImagen=carga.getController();
+                    this.controladorImagen.setControladorPrincipal(this);
+
+
+                    ControladorSecundario controlador = carga.getController();
+                    controlador.setEntityManager(this.em);
+                    controlador.setControladorPrincipal(this);
+
                     Stage stage=new Stage();
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -216,5 +226,4 @@ public class ControladorPrincipal implements Initializable {
         tv.getItems().addAll(listavideo);
     }
 }
-
 
