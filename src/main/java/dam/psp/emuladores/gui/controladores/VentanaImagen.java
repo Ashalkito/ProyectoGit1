@@ -4,6 +4,7 @@ import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.DAOFactory;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Sistema;
+import dam.psp.emuladores.modelo.Videojuego;
 import dam.psp.emuladores.modelo.jpa.EmuladorJPA;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
@@ -39,20 +40,19 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     @FXML
     private Label lblTitulo1;
     private Sistema sis;
+    private Videojuego videojuego;
 
     private String rutafoto;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        GestorEntityManager em = GestorEntityManager.getINSTANCIA();
-        em.getEntityManager().getTransaction().begin();
-        List<Emulador> emuladores = em.getEntityManager().createQuery("Select e from EmuladorJPA e").getResultList();
-        em.getEntityManager().getTransaction().commit();
-        cmbEmulador.getItems().addAll(emuladores);
+        cargarVentana();
 
 
     }
-
+    public void setVideojuego(Videojuego v){
+        videojuego = v;
+    }
     public void setSis(Sistema sis) {
         this.sis = sis;
     }
@@ -62,6 +62,22 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     }
 
     public void btnJugarJuego(ActionEvent actionEvent) {
+        System.out.println("Foto: "+rutafoto);
 
+        if(chkGrabar.isSelected()){
+            cmbEmulador.getSelectionModel().getSelectedItem().abrir(getVideojuego(),true);
+        }else{
+            cmbEmulador.getSelectionModel().getSelectedItem().abrir(getVideojuego(),false);
+        }
+    }
+    public Videojuego getVideojuego(){
+        return videojuego;
+    }
+    public void cargarVentana(){
+        GestorEntityManager em = GestorEntityManager.getINSTANCIA();
+        em.getEntityManager().getTransaction().begin();
+        List<Emulador> emuladores = em.getEntityManager().createQuery("Select e from EmuladorJPA e").getResultList();
+        em.getEntityManager().getTransaction().commit();
+        cmbEmulador.getItems().addAll(emuladores);
     }
 }

@@ -73,6 +73,7 @@ public class ControladorPrincipal implements Initializable {
     @FXML
     private TableView<Videojuego> tv;
 
+    private Videojuego videojuego;
     @FXML
     void pulsarBuscar(ActionEvent event) {
         DAOFactory.getVideojuegoDAO().getVideojuegos(
@@ -187,9 +188,10 @@ public class ControladorPrincipal implements Initializable {
                     FXMLLoader carga= new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
                     Parent root = carga.load();
                     VentanaImagen vi=carga.getController();
-                    vi.setSis(tv.getSelectionModel().getSelectedItem());
-                    //vi.setRutafoto(tv.getSelectionModel().getSelectedItem().getRutaFoto());
-                    //System.out.println("Foto"+tv.getSelectionModel().getSelectedItem().getRutaFoto());
+                    vi.setSis(tv.getSelectionModel().getSelectedItem().getSistema());
+                    vi.setRutafoto(tv.getSelectionModel().getSelectedItem().getRutaFoto());
+                    vi.setVideojuego(tv.getSelectionModel().getSelectedItem());
+                    System.out.println("Foto"+tv.getSelectionModel().getSelectedItem().getRutaFoto());
                     Stage stage=new Stage();
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -221,6 +223,7 @@ public class ControladorPrincipal implements Initializable {
         tv.getItems().addAll(listavideo);
 
     }
+
 }
 
 
