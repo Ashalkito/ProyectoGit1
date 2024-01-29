@@ -27,6 +27,8 @@ public class VentanaSistema extends ControladorSecundario implements Initializab
 
     public void btnAceptarSistema(ActionEvent actionEvent) {
         Sistema sistema = new SistemaDAOJPA().nuevoSistema(txfNombre.getText());
+        this.getCp().recargarVentana();
+        this.getStage().close();
     }
 }
 
