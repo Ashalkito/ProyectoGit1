@@ -1,5 +1,6 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.modelo.DAOFactory;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.jpa.EmuladorJPA;
 import jakarta.persistence.Entity;
@@ -36,15 +37,24 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     private Label lblTitulo1;
     private Sistema sis;
 
+    private String rutafoto;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        cmbEmulador.getItems().addAll(DAOFactory.getEmuladorDAO().getEmuladores(sis));
+        Image image = new Image(rutafoto);
+        imgImagen.setImage(image);
     }
 
     public void setSis(Sistema sis) {
         this.sis = sis;
     }
 
+    public void setRutafoto(String ruta){
+        this.rutafoto=ruta;
+    }
+
     public void btnJugarJuego(ActionEvent actionEvent) {
+
     }
 }

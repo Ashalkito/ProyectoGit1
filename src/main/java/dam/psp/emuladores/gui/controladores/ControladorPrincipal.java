@@ -188,6 +188,8 @@ public class ControladorPrincipal implements Initializable {
                     Parent root = carga.load();
                     VentanaImagen vi=carga.getController();
                     vi.setSis(tv.getSelectionModel().getSelectedItem().getSistema());
+                    vi.setRutafoto(tv.getSelectionModel().getSelectedItem().getRutaFoto());
+                    System.out.println("Foto"+tv.getSelectionModel().getSelectedItem().getRutaFoto());
                     Stage stage=new Stage();
                     stage.setScene(new Scene(root));
                     stage.show();
