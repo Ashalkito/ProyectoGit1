@@ -80,10 +80,9 @@ public class ControladorPrincipal implements Initializable {
     void pulsarBuscar(ActionEvent event) {
         List<Videojuego> listaVJ= DAOFactory.getVideojuegoDAO().getVideojuegos(
                 txfBuscador.getText(),
-                chbSistema.getSelectionModel().getSelectedItem(),
+                chbSistema.getValue(),
                 chbCategoria.getValue()
         );
-
         tv.getItems().clear();
         tv.getItems().addAll(listaVJ);
 

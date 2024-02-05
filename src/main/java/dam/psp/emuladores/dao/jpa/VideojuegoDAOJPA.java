@@ -59,30 +59,31 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
 
         String jpql = "SELECT c FROM VideojuegoJPA c";
 
-        String and =" AND ";
+        String and = " AND ";
 
-        if (patron != null || s != null || c != null) {
-            jpql.concat(" WHERE ");
+        if ((patron != null) || s != null || c != null) {
+            jpql += " WHERE ";
 
-            if (patron != null) {
+            if (patron != null && !patron.isBlank()) {
+
                 String vi = "c.nombre LIKE '%" + patron + "%'";
-                jpql.concat(vi);
-                if(s!=null || c!=null){
-                    jpql.concat(and);
+                jpql += (vi);
+                if (s != null || c != null) {
+                    jpql += and;
                 }
             }
 
             if (s != null) {
-                String si = "c.sistema_id = '" + s.getId() + "' ";
-                jpql.concat(si);
-                if(c!=null){
-                    jpql.concat(and);
+                String si = "c.sistema.id = " + s.getId();
+                jpql+=si;
+                if (c != null) {
+                    jpql+=and;
                 }
             }
 
             if (c != null) {
-                String ca = "id IN ( SELECT videojuegoJPA_id FROM videojuegojpa_categoriajpa WHERE categorias_id = '" + c.getId() + "' )";
-                jpql.concat(ca);
+                String ca = "id IN (SELECT vj.id FROM VideojuegoJPA vj JOIN vj.categorias c WHERE c.id = " + c.getId() + ")";
+                jpql+=ca;
             }
         }
         EntityManager gm = GestorEntityManager.getINSTANCIA().getEntityManager();
