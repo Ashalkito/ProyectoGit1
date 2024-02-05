@@ -84,9 +84,10 @@ public class ControladorPrincipal implements Initializable {
         }
         List<Videojuego> listaVJ= DAOFactory.getVideojuegoDAO().getVideojuegos(
                 patron,
-                chbSistema.getValue(),
+                chbSistema.getSelectionModel().getSelectedItem(),
                 chbCategoria.getValue()
         );
+
         tv.getItems().clear();
         tv.getItems().addAll(listaVJ);
 
@@ -191,21 +192,19 @@ public class ControladorPrincipal implements Initializable {
         recargarVentana();
 
         tv.setOnMouseClicked(e -> {
-            if (e.getClickCount() == 2) {
+            if (e.getClickCount() == 1) {
                 try {
                     FXMLLoader carga = new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
                     Parent root = carga.load();
                     VentanaImagen vi = carga.getController();
-                    vi.setSis(tv.getSelectionModel().getSelectedItem().getSistema());
-                    vi.setRutafoto(tv.getSelectionModel().getSelectedItem().getRutaFoto());
-                    vi.setVideojuego(tv.getSelectionModel().getSelectedItem());
-                    System.out.println("Foto" + tv.getSelectionModel().getSelectedItem().getRutaFoto());
+                    vi.cargarVentana(tv.getSelectionModel().getSelectedItem());
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setResizable(false);
                     stage.show();
                 } catch (IOException error) {
                     System.out.println(error.getMessage());
-                    //error.printStackTrace();
                 }
             }
         });
