@@ -85,6 +85,8 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
                 String ca = "id IN (SELECT vj.id FROM VideojuegoJPA vj JOIN vj.categorias c WHERE c.id = " + c.getId() + ")";
                 jpql+=ca;
             }
+        }else if (patron==null && s==null && c==null){
+
         }
         EntityManager gm = GestorEntityManager.getINSTANCIA().getEntityManager();
 

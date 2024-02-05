@@ -78,8 +78,12 @@ public class ControladorPrincipal implements Initializable {
 
     @FXML
     void pulsarBuscar(ActionEvent event) {
+        String patron= txfBuscador.getText();
+        if(patron.equals("")){
+            patron=null;
+        }
         List<Videojuego> listaVJ= DAOFactory.getVideojuegoDAO().getVideojuegos(
-                txfBuscador.getText(),
+                patron,
                 chbSistema.getValue(),
                 chbCategoria.getValue()
         );
@@ -212,10 +216,14 @@ public class ControladorPrincipal implements Initializable {
 
 
     public void cargarCategorias() {
+        Categoria c=null;
+        chbCategoria.getItems().addAll(c);
         chbCategoria.getItems().addAll(DAOFactory.getCategoriaDAO().getCategorias());
     }
 
     public void cargarSistemas() {
+        Sistema s=null;
+        chbSistema.getItems().addAll(s);
         chbSistema.getItems().addAll(DAOFactory.getSistemaDAO().getSistema());
     }
 
