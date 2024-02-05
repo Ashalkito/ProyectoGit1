@@ -1,5 +1,6 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.dao.jpa.EmuladorDAOJPA;
 import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.DAOFactory;
 import dam.psp.emuladores.modelo.Emulador;
@@ -47,8 +48,6 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarVentana();
-
-
     }
     public void setVideojuego(Videojuego v){
         videojuego = v;
@@ -63,7 +62,6 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
 
     public void btnJugarJuego(ActionEvent actionEvent) {
         System.out.println("Foto: "+rutafoto);
-
         if(chkGrabar.isSelected()){
             cmbEmulador.getSelectionModel().getSelectedItem().abrir(getVideojuego(),true);
         }else{
@@ -74,10 +72,6 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
         return videojuego;
     }
     public void cargarVentana(){
-        GestorEntityManager em = GestorEntityManager.getINSTANCIA();
-        em.getEntityManager().getTransaction().begin();
-        List<Emulador> emuladores = em.getEntityManager().createQuery("Select e from EmuladorJPA e").getResultList();
-        em.getEntityManager().getTransaction().commit();
-        cmbEmulador.getItems().addAll(emuladores);
+            cmbEmulador.getItems().addAll(DAOFactory.getEmuladorDAO().getEmuladores(sis));
     }
 }
