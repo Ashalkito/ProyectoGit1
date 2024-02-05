@@ -186,29 +186,37 @@ public class ControladorPrincipal implements Initializable {
         em = GestorEntityManager.getINSTANCIA().getEntityManager();
         chbCategoria.getSelectionModel().selectFirst();
         chbSistema.getSelectionModel().selectFirst();
+
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));
         colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1, fila.getValue().getCategorias().toString().length() - 1)));
+
         recargarVentana();
 
         tv.setOnMouseClicked(e -> {
-            if (e.getClickCount() == 1) {
+            if (e.getClickCount() == 2) {
                 try {
                     FXMLLoader carga = new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
+
                     Parent root = carga.load();
-                    VentanaImagen vi = carga.getController();
-                    vi.cargarVentana(tv.getSelectionModel().getSelectedItem());
                     Stage stage = new Stage();
-                    stage.setScene(new Scene(root));
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setResizable(false);
-                    stage.show();
+                    stage.setScene(new Scene(root));
+                    VentanaImagen vi = carga.getController();
+                    vi.setEntityManager(this.em);
+                    vi.setControladorPrincipal(this);
+                    vi.setStage(stage);
+                    vi.cargarVentana(tv.getSelectionModel().getSelectedItem());
+                    vi.showStage();
+
                 } catch (IOException error) {
                     System.out.println(error.getMessage());
                 }
             }
         });
-           }
+
+    }
 
 
     public void cargarCategorias() {

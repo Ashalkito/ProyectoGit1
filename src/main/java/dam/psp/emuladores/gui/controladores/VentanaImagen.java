@@ -47,24 +47,19 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
 
     private Videojuego videojuego;
 
-    private String rutafoto;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        cmbEmulador.getItems().clear();
     }
 
     public void setVideojuego(Videojuego v) {
         videojuego = v;
     }
 
-    public void setRutafoto(String ruta) {
-        this.rutafoto = ruta;
-    }
 
     @FXML
     public void btnJugarJuego(ActionEvent actionEvent) {
-        System.out.println("Foto: " + rutafoto);
         if (chkGrabar.isSelected()) {
             cmbEmulador.getSelectionModel().getSelectedItem().abrir(getVideojuego(), true);
         } else {
@@ -76,16 +71,16 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
         return videojuego;
     }
 
-    public void cargarVentana(Videojuego vj) throws FileNotFoundException {
+    public void cargarVentana(Videojuego vj) {
         this.videojuego = vj;
-        cmbEmulador.getItems().addAll(DAOFactory.getEmuladorDAO().getEmuladores(vj.getSistema()));
-        System.out.println(vj.getRutaFoto());
-        InputStream is = new FileInputStream(vj.getRutaFoto());
-        Image imagen = new Image(is);
-        if (imagen != null) {
+        cmbEmulador.getItems().addAll(DAOFactory.getEmuladorDAO().getEmuladores(videojuego.getSistema()));
+        try {
+            InputStream is = new FileInputStream(videojuego.getRutaFoto());
+            Image imagen = new Image(is);
             imgImagen.setImage(imagen);
-        } else {
-            System.out.println("null");
+
+        } catch (Exception e) {
+            System.out.println("Error al cargar la imagen");
         }
     }
 }
