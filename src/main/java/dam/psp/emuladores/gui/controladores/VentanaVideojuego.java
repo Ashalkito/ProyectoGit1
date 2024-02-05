@@ -90,16 +90,26 @@ public class VentanaVideojuego extends ControladorSecundario implements Initiali
     }
 
     public void btnAceptarVideoJuego(ActionEvent actionEvent) {
-        Videojuego vj = new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(), chbSistemas.getValue(), txfRutaJuego.getText(), txfRutacaratula.getText(), lvCategoria.getSelectionModel().getSelectedItems());
-        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-        alerta.setTitle(new String("Nueva inserción".getBytes(), Charset.forName("UTF-8")));
-        alerta.setHeaderText(new String("¿Introducir nuevo videojuego?".getBytes(), Charset.forName("UTF-8")));
-        alerta.setContentText(new String("Se creará una nueva entrada en la base de datos.".getBytes(), Charset.forName("UTF-8")));
+        if(txfNombre.getText().isEmpty() || chbSistemas.getValue()==null ||
+                txfRutaJuego.getText().isEmpty() || txfRutacaratula.getText().isEmpty() ||
+                lvCategoria.getSelectionModel().getSelectedItems() == null){
+            Alert alertaError=new Alert(Alert.AlertType.ERROR);
+            alertaError.setTitle("Error");
+            alertaError.setHeaderText("Error al introducir un nuevo videojuego");
+            alertaError.setContentText("No se han introducido los datos necesarios");
+            alertaError.showAndWait();
+        }else{
+            Videojuego vj = new VideojuegoDAOJPA().nuevoVideojuego(txfNombre.getText(), chbSistemas.getValue(), txfRutaJuego.getText(), txfRutacaratula.getText(), lvCategoria.getSelectionModel().getSelectedItems());
+            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+            alerta.setTitle(new String("Nueva inserción".getBytes(), Charset.forName("UTF-8")));
+            alerta.setHeaderText(new String("¿Introducir nuevo videojuego?".getBytes(), Charset.forName("UTF-8")));
+            alerta.setContentText(new String("Se creará una nueva entrada en la base de datos.".getBytes(), Charset.forName("UTF-8")));
 
-        Optional<ButtonType> resultado = alerta.showAndWait();
-        if (resultado.isPresent() && resultado.get() == javafx.scene.control.ButtonType.OK && this.getStage()!=null) {
-            this.getCp().recargarVentana();
-            this.getStage().close();
+            Optional<ButtonType> resultado = alerta.showAndWait();
+            if (resultado.isPresent() && resultado.get() == javafx.scene.control.ButtonType.OK && this.getStage()!=null) {
+                this.getCp().recargarVentana();
+                this.getStage().close();
+            }
         }
     }
 }
