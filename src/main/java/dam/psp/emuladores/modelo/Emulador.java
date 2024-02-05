@@ -14,10 +14,11 @@ public interface Emulador {
     public default boolean abrir(Videojuego v, boolean grabarVideo){
         String archivoSalida = v.getNombre()+ LocalDate.now()+ LocalTime.now()+".mp4";
         String comandoGrabar = "ffmpeg -s "+Toolkit.getDefaultToolkit().getScreenResolution()+"-framerate 25 -f x11grab -i :0.0 "+archivoSalida;
-        String comando  = this.getLineaComandos().replace("#ROM#",v.getRuta());
+        String comando  = this.getLineaComandos().replace("#ROM#","\""+v.getRuta()+"\"");
+
         boolean devolver = true;
         try {
-            Process proceso = new ProcessBuilder(comando).start();
+            Process proceso = new ProcessBuilder(this.getRuta()," "+comando).start();
             if(grabarVideo) {
                 Process proceso2 = new ProcessBuilder(comandoGrabar).start();
             }

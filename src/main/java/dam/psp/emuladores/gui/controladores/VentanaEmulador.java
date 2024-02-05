@@ -56,11 +56,12 @@ public class VentanaEmulador extends ControladorSecundario implements Initializa
     }
 
     public void btnExplorarEmulador(ActionEvent actionEvent) {
-        DirectoryChooser dc = new DirectoryChooser();
-        dc.setTitle("Elegir emulador");
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Elegir emulador");
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Ejecutable", "*.exe"));
         Stage stage = (Stage) btnExplorarInstalacion.getScene().getWindow();
-        File ubicacion = dc.showDialog(stage);
-        if(ubicacion!=null){
+        File ubicacion = fc.showOpenDialog(stage);
+        if (ubicacion != null) {
             txfRutaInstalacion.setText(ubicacion.getAbsolutePath());
         }
     }
