@@ -194,6 +194,7 @@ public class ControladorPrincipal implements Initializable {
         recargarVentana();
 
         tv.setOnMouseClicked(e -> {
+            //hola
             if (e.getClickCount() == 2) {
                 try {
                     FXMLLoader carga = new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
