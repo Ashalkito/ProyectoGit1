@@ -217,6 +217,10 @@ public class ControladorPrincipal implements Initializable {
 
     public void recargarVentana() {
         tv.getItems().clear();
+        chbCategoria.getItems().clear();
+        chbSistema.getItems().clear();
+        cargarCategorias();
+        cargarSistemas();
         em.getTransaction().begin();
         List<Videojuego> listavideo = em.createQuery("Select V from VideojuegoJPA V").getResultList();
         em.getTransaction().commit();
