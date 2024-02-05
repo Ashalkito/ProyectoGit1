@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -74,13 +75,17 @@ public class ControladorPrincipal implements Initializable {
     private TableView<Videojuego> tv;
 
     private Videojuego videojuego;
+
     @FXML
     void pulsarBuscar(ActionEvent event) {
-        DAOFactory.getVideojuegoDAO().getVideojuegos(
+        List<Videojuego> listaVJ= DAOFactory.getVideojuegoDAO().getVideojuegos(
                 txfBuscador.getText(),
                 chbSistema.getSelectionModel().getSelectedItem(),
                 chbCategoria.getValue()
         );
+
+        tv.getItems().clear();
+        tv.getItems().addAll(listaVJ);
 
     }
 
@@ -182,17 +187,17 @@ public class ControladorPrincipal implements Initializable {
 
         recargarVentana();
 
-        tv.setOnMouseClicked(e->{
-            if(e.getClickCount()==2){
+        tv.setOnMouseClicked(e -> {
+            if (e.getClickCount() == 2) {
                 try {
-                    FXMLLoader carga= new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
+                    FXMLLoader carga = new FXMLLoader(getClass().getResource("/interfazTabla.fxml"));
                     Parent root = carga.load();
-                    VentanaImagen vi=carga.getController();
+                    VentanaImagen vi = carga.getController();
                     vi.setSis(tv.getSelectionModel().getSelectedItem().getSistema());
                     vi.setRutafoto(tv.getSelectionModel().getSelectedItem().getRutaFoto());
                     vi.setVideojuego(tv.getSelectionModel().getSelectedItem());
-                    System.out.println("Foto"+tv.getSelectionModel().getSelectedItem().getRutaFoto());
-                    Stage stage=new Stage();
+                    System.out.println("Foto" + tv.getSelectionModel().getSelectedItem().getRutaFoto());
+                    Stage stage = new Stage();
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException error) {
@@ -222,7 +227,7 @@ public class ControladorPrincipal implements Initializable {
         cargarCategorias();
         cargarSistemas();
         em.getTransaction().begin();
-        List<Videojuego> listavideo = em.createQuery("Select V from VideojuegoJPA V").getResultList();
+        List<Videojuego> listavideo= DAOFactory.getVideojuegoDAO().getVideojuegos(null,null,null);
         em.getTransaction().commit();
         tv.getItems().addAll(listavideo);
 

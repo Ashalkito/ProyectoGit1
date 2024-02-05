@@ -57,29 +57,37 @@ public class VideojuegoDAOJPA implements VideojuegoDAO {
         List<VideojuegoJPA> listavideo = new ArrayList<>();
 
 
-        String jpql= "SELECT c FROM VideoJuegoJPA c";
+        String jpql = "SELECT c FROM VideojuegoJPA c";
 
-        if (patron==null || s==null || c==null){
+        String and =" AND ";
+
+        if (patron != null || s != null || c != null) {
             jpql.concat(" WHERE ");
-        }
 
-        String vi="c.nombre LIKE '%"+patron+"%'";
-        String si="c.sistema_id = '"+s.getId()+"' ";
-        String ca="id IN ( SELECT videojuegoJPA_id FROM videojuegojpa_categoriajpa WHERE categorias_id = '"+c.getId()+"' )";
+            if (patron != null) {
+                String vi = "c.nombre LIKE '%" + patron + "%'";
+                jpql.concat(vi);
+                if(s!=null || c!=null){
+                    jpql.concat(and);
+                }
+            }
 
-        if(patron !=null){
-            jpql.concat(vi);
-        }
-        if(s != null){
-            jpql.concat(si);
-        }
-        if (c != null) {
-            jpql.concat(ca);
-        }
+            if (s != null) {
+                String si = "c.sistema_id = '" + s.getId() + "' ";
+                jpql.concat(si);
+                if(c!=null){
+                    jpql.concat(and);
+                }
+            }
 
-        EntityManager gm= GestorEntityManager.getINSTANCIA().getEntityManager();
+            if (c != null) {
+                String ca = "id IN ( SELECT videojuegoJPA_id FROM videojuegojpa_categoriajpa WHERE categorias_id = '" + c.getId() + "' )";
+                jpql.concat(ca);
+            }
+        }
+        EntityManager gm = GestorEntityManager.getINSTANCIA().getEntityManager();
 
-        listavideo=gm.createQuery(jpql,VideojuegoJPA.class)
+        listavideo = gm.createQuery(jpql, VideojuegoJPA.class)
                 .getResultList();
 
         return listavideo;
