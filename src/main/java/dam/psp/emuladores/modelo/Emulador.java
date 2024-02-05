@@ -19,6 +19,7 @@ public interface Emulador {
 
         boolean devolver = true;
         try {
+            // Se puede hacer también con RunTime
             Process proceso = new ProcessBuilder(this.getRuta(),comando).start();
             System.out.println("Ruta: "+this.getRuta());
             System.out.println("Comando: "+comando);
