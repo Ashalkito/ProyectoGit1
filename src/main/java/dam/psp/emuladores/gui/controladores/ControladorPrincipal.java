@@ -184,11 +184,11 @@ public class ControladorPrincipal implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         em = GestorEntityManager.getINSTANCIA().getEntityManager();
-        cargarCategorias();
-        cargarSistemas();
         chbCategoria.getSelectionModel().selectFirst();
         chbSistema.getSelectionModel().selectFirst();
-
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));
+        colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1, fila.getValue().getCategorias().toString().length() - 1)));
         recargarVentana();
 
         tv.setOnMouseClicked(e -> {
@@ -208,10 +208,7 @@ public class ControladorPrincipal implements Initializable {
                 }
             }
         });
-        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        colSistema.setCellValueFactory(new PropertyValueFactory<>("sistema"));
-        colCategoria.setCellValueFactory(fila -> new SimpleObjectProperty<>(fila.getValue().getCategorias().toString().substring(1, fila.getValue().getCategorias().toString().length() - 1)));
-    }
+           }
 
 
     public void cargarCategorias() {
