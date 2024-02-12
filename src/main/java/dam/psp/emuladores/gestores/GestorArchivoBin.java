@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//a
+
 public class GestorArchivoBin {
     private static GestorArchivoBin INSTANCIA;
     private List<CategoriaBin> categorias;
@@ -49,19 +49,43 @@ public class GestorArchivoBin {
     }
 
     public List<CategoriaBin> getCategorias(int id) {
-        throw new UnsupportedOperationException("sin programar");
+        List<CategoriaBin> listacategorias= new ArrayList<>();
+        for(CategoriaBin i:categorias){
+            if(i.getId()==id){
+                listacategorias.add(i);
+            }
+        }
+        return listacategorias;
     }
 
     public List<SistemaBin> getSistemas(int id) {
-        throw new UnsupportedOperationException("sin programar");
+        List<SistemaBin> listasistemas = new ArrayList<>();
+        for(SistemaBin i:sistemas){
+            if(i.getId()==id){
+                listasistemas.add(i);
+            }
+        }
+        return listasistemas;
     }
 
     public List<EmuladorBin> getEmuladores(int id) {
-        throw new UnsupportedOperationException("sin programar");
+        List<EmuladorBin> listaemuladores= new ArrayList<>();
+        for(EmuladorBin i: emuladores){
+            if(i.getId()==id){
+                listaemuladores.add(i);
+            }
+        }
+        return listaemuladores;
     }
 
     public List<VideojuegoBin> getVideojuegos(int id) {
-        throw new UnsupportedOperationException("sin programar");
+        List<VideojuegoBin> listavideojuegos= new ArrayList<>();
+        for(VideojuegoBin i: videojuegos){
+            if(i.getId()==id){
+                listavideojuegos.add(i);
+            }
+        }
+        return listavideojuegos;
     }
 
     public void guardar() throws IOException {
