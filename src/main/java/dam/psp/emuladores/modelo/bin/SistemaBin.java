@@ -4,6 +4,7 @@ import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.Videojuego;
 
 import java.util.List;
+import java.util.Objects;
 
 public class SistemaBin implements Sistema {
     private int id;
@@ -32,5 +33,18 @@ public class SistemaBin implements Sistema {
 
     public List<EmuladorBin> getEmuladores() {
         return emuladores;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SistemaBin that = (SistemaBin) o;
+        return id == that.id && Objects.equals(nombre, that.nombre) && Objects.equals(juegos, that.juegos) && Objects.equals(emuladores, that.emuladores);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, juegos, emuladores);
     }
 }
