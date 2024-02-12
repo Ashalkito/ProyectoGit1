@@ -6,7 +6,9 @@ plugins {
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
-
+application {
+    mainClassName="dam.psp.emuladores.gui.ProgramaEmuladores"
+}
 repositories {
     mavenCentral()
 }

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="Programa EmuladorDaoJpa">
+    <list default="true" id="bb72263a-8407-4f16-accc-99f5c591709a" name="Changes" comment="SistemaBin, EmuladorBin, VideojuegoBin y CategoriaBin (sin revisar)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/dao/jpa/EmuladorDAOJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/CategoriaBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/CategoriaBin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/EmuladorBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/EmuladorBin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/SistemaBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/SistemaBin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/VideojuegoBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dam/psp/emuladores/modelo/bin/VideojuegoBin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +25,21 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -29,26 +48,97 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2afDzY60zmJKCEnDk7PuJ9Lez8h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "mainProyecto2",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
+  <component name="RunManager" selected="Gradle.ProyectoGit1 [run]">
+    <configuration name="EmuladorDAOJPA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dam.psp.emuladores.dao.jpa.EmuladorDAOJPA" />
+      <module name="ProyectoGit1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dam.psp.emuladores.dao.jpa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProgramaEmuladores" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dam.psp.emuladores.gui.ProgramaEmuladores" />
+      <module name="ProyectoGit1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dam.psp.emuladores.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProyectoGit1 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ProyectoGit1 [run]" />
+        <item itemvalue="Application.ProgramaEmuladores" />
+        <item itemvalue="Application.EmuladorDAOJPA" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -120,7 +210,111 @@
       <option name="project" value="LOCAL" />
       <updated>1705309567161</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ventana de Sistema hecha">
+      <option name="closed" value="true" />
+      <created>1705909340390</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705909340390</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ventana Emulador a medias y SistemaJPA sin erratas. Lo subo porque la marini lo necesita ;)">
+      <option name="closed" value="true" />
+      <created>1705912440172</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705912440172</updated>
+    </task>
+    <task id="LOCAL-00011" summary="CategoriaJPA sin errata">
+      <option name="closed" value="true" />
+      <created>1705912618620</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705912618620</updated>
+    </task>
+    <task id="LOCAL-00012" summary="QUE NO HABIA ERRATAS POASFJMPAKÑMFÑKMFPAJEFPIJEPIFJPEJFAFAHFOHEOUHFUERHFIAUERPHAEIRFHI SOCORROOOFPFPF  112">
+      <option name="closed" value="true" />
+      <created>1705915833818</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1705915833818</updated>
+    </task>
+    <task id="LOCAL-00013" summary="choicebox ventana emulador">
+      <option name="closed" value="true" />
+      <created>1705916356918</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705916356918</updated>
+    </task>
+    <task id="LOCAL-00014" summary="commit  prueba">
+      <option name="closed" value="true" />
+      <created>1705918260729</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1705918260729</updated>
+    </task>
+    <task id="LOCAL-00015" summary="comentario">
+      <option name="closed" value="true" />
+      <created>1705920479108</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1705920479108</updated>
+    </task>
+    <task id="LOCAL-00016" summary="VideojuegoDAO arreglado">
+      <option name="closed" value="true" />
+      <created>1705921066013</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1705921066013</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Ahora se actualizan las categorias y los sistemas en el ControladorPrincipal :)">
+      <option name="closed" value="true" />
+      <created>1707122624045</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707122624045</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Lanzar juegos">
+      <option name="closed" value="true" />
+      <created>1707132807496</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707132807496</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Push final">
+      <option name="closed" value="true" />
+      <created>1707132945308</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707132945308</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Push final (de verdad ahora)">
+      <option name="closed" value="true" />
+      <created>1707133144748</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1707133144748</updated>
+    </task>
+    <task id="LOCAL-00021" summary="SistemaBin, EmuladorBin, VideojuegoBin y CategoriaBin (sin revisar)">
+      <option name="closed" value="true" />
+      <created>1707724837198</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1707724837198</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +336,19 @@
     <MESSAGE value="DAOFactory programado" />
     <MESSAGE value="Emulador: método abrir en proceso" />
     <MESSAGE value="Programa EmuladorDaoJpa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Programa EmuladorDaoJpa" />
+    <MESSAGE value="Ventana de Sistema hecha" />
+    <MESSAGE value="Ventana Emulador a medias y SistemaJPA sin erratas. Lo subo porque la marini lo necesita ;)" />
+    <MESSAGE value="CategoriaJPA sin errata" />
+    <MESSAGE value="QUE NO HABIA ERRATAS POASFJMPAKÑMFÑKMFPAJEFPIJEPIFJPEJFAFAHFOHEOUHFUERHFIAUERPHAEIRFHI SOCORROOOFPFPF  112" />
+    <MESSAGE value="choicebox ventana emulador" />
+    <MESSAGE value="commit  prueba" />
+    <MESSAGE value="comentario" />
+    <MESSAGE value="VideojuegoDAO arreglado" />
+    <MESSAGE value="Ahora se actualizan las categorias y los sistemas en el ControladorPrincipal :)" />
+    <MESSAGE value="Lanzar juegos" />
+    <MESSAGE value="Push final" />
+    <MESSAGE value="Push final (de verdad ahora)" />
+    <MESSAGE value="SistemaBin, EmuladorBin, VideojuegoBin y CategoriaBin (sin revisar)" />
+    <option name="LAST_COMMIT_MESSAGE" value="SistemaBin, EmuladorBin, VideojuegoBin y CategoriaBin (sin revisar)" />
   </component>
 </project>
