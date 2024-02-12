@@ -10,7 +10,7 @@ public class DAOBinFactory implements ProgramaEmuladoresDAOFactory{
     public SistemaDAO getSistemaDAO() {
         return null;
     }
-
+//a
     @Override
     public EmuladorDAO getEmuladorDAO() {
         return null;
