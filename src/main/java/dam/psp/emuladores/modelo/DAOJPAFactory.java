@@ -9,20 +9,23 @@ import dam.psp.emuladores.dao.jpa.EmuladorDAOJPA;
 import dam.psp.emuladores.dao.jpa.SistemaDAOJPA;
 import dam.psp.emuladores.dao.jpa.VideojuegoDAOJPA;
 
-public class DAOFactory {
-    public static SistemaDAO getSistemaDAO() {
+public class DAOJPAFactory implements ProgramaEmuladoresDAOFactory{
+    public SistemaDAO getSistemaDAO() {
+
         return new SistemaDAOJPA();
     }
 
-    public static EmuladorDAO getEmuladorDAO() {
+    public EmuladorDAO getEmuladorDAO() {
         return new EmuladorDAOJPA();
     }
 
-    public static VideojuegoDAO getVideojuegoDAO() {
+    public VideojuegoDAO getVideojuegoDAO() {
+
         return new VideojuegoDAOJPA();
     }
 
-    public static CategoriaDAO getCategoriaDAO() {
+    public  CategoriaDAO getCategoriaDAO() {
+
         return new CategoriaDAOJPA();
     }
 
