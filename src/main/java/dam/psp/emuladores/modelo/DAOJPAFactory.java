@@ -24,7 +24,7 @@ public class DAOJPAFactory implements ProgramaEmuladoresDAOFactory{
         return new VideojuegoDAOJPA();
     }
 
-    public  CategoriaDAO getCategoriaDAO() {
+    public CategoriaDAO getCategoriaDAO() {
 
         return new CategoriaDAOJPA();
     }
