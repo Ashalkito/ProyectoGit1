@@ -15,27 +15,34 @@ import java.util.List;
 public class EmuladorDAOJPA implements EmuladorDAO {
 
     @Override
-    public Emulador nuevoEmulador(String nombre, String ruta, String lc, Sistema s){
-        EmuladorJPA e=null;
-        if(s instanceof SistemaJPA){
-            GestorEntityManager gem=GestorEntityManager.getINSTANCIA();
-            e=new EmuladorJPA();
-            e.setNombre(nombre);
-            e.setRuta(ruta);
-            e.setLineaComandos(lc);
-            e.setSistema((SistemaJPA) s);
+    public Emulador nuevoEmulador(String nombre, String ruta, String lc, Sistema s) {
+        GestorEntityManager gem = GestorEntityManager.getINSTANCIA();
+        EmuladorJPA emulador = null;
+        try {
+            emulador = new EmuladorJPA();
 
-            gem.getEntityManager().getTransaction().begin();
-            gem.getEntityManager().persist(e);
-            gem.getEntityManager().getTransaction().commit();
-        }else{
-            throw new IllegalArgumentException("El sistema no puede ser guardado en la base de datos");
+            if (s instanceof SistemaJPA) {
+                emulador.setNombre(nombre);
+                emulador.setRuta(ruta);
+                emulador.setLineaComandos(lc);
+                emulador.setSistema((SistemaJPA) s);
+
+                gem.getEntityManager().getTransaction().begin();
+                gem.getEntityManager().persist(emulador);
+                gem.getEntityManager().getTransaction().commit();
+
+            } else {
+                throw new IllegalArgumentException("El sistema no puede ser guardado en la base de datos");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        return e;
+        return emulador;
     }
+
     @Override
     public List<EmuladorJPA> getEmuladores(Sistema s) {
-        GestorEntityManager gem=GestorEntityManager.getINSTANCIA();
+        GestorEntityManager gem = GestorEntityManager.getINSTANCIA();
         return gem.getEntityManager()
                 .createQuery("Select emu from EmuladorJPA emu", EmuladorJPA.class)
                 .getResultList();

@@ -5,10 +5,8 @@ import dam.psp.emuladores.modelo.Categoria;
 import dam.psp.emuladores.modelo.DAOFactory;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.Videojuego;
-import dam.psp.emuladores.modelo.jpa.VideojuegoJPA;
 import jakarta.persistence.EntityManager;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +14,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.stage.Modality;
@@ -78,107 +78,34 @@ public class ControladorPrincipal implements Initializable {
 
     @FXML
     void pulsarBuscar(ActionEvent event) {
-        String patron= txfBuscador.getText();
-        if(patron.equals("")){
-            patron=null;
+        buscarVideoJuego();
+    }
+
+    @FXML
+    void pulsarEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            buscarVideoJuego();
         }
-        List<Videojuego> listaVJ= DAOFactory.getVideojuegoDAO().getVideojuegos(
-                patron,
-                chbSistema.getSelectionModel().getSelectedItem(),
-                chbCategoria.getValue()
-        );
-
-        tv.getItems().clear();
-        tv.getItems().addAll(listaVJ);
-
     }
 
     @FXML
     void pulsarCategoria(ActionEvent event) {
-        try {
-            FXMLLoader carga;
-
-            carga = new FXMLLoader(getClass().getResource("/interfazCategoria.fxml"));
-
-            Parent root = carga.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setResizable(false);
-            stage.setScene(new Scene(root, 400, 107));
-            ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(this.em);
-            controlador.setControladorPrincipal(this);
-            controlador.setStage(stage);
-            controlador.showStage();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        lanzarVentanaSecundaria("/interfazCategoria.fxml",400,107);
     }
 
     @FXML
     void pulsarEmulador(ActionEvent event) {
-        try {
-            FXMLLoader carga;
-
-            carga = new FXMLLoader(getClass().getResource("/interfazEmulador.fxml"));
-
-            Parent root = carga.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setResizable(false);
-            stage.setScene(new Scene(root, 400, 212));
-            ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(this.em);
-            controlador.setControladorPrincipal(this);
-            controlador.setStage(stage);
-            controlador.showStage();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        lanzarVentanaSecundaria("/interfazEmulador.fxml",400,212);
     }
 
     @FXML
     void pulsarSistema(ActionEvent event) {
-        try {
-            FXMLLoader carga;
-
-            carga = new FXMLLoader(getClass().getResource("/interfazSistema.fxml"));
-
-            Parent root = carga.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setResizable(false);
-            stage.setScene(new Scene(root, 400, 107));
-            ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(this.em);
-            controlador.setControladorPrincipal(this);
-            controlador.setStage(stage);
-            controlador.showStage();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        lanzarVentanaSecundaria("/interfazSistema.fxml",400,107);
     }
 
     @FXML
     void pulsarVideojuego(ActionEvent event) {
-        try {
-            FXMLLoader carga;
-
-            carga = new FXMLLoader(getClass().getResource("/interfazVideojuego.fxml"));
-
-            Parent root = carga.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setResizable(false);
-            stage.setScene(new Scene(root, 400, 305));
-            ControladorSecundario controlador = carga.getController();
-            controlador.setEntityManager(this.em);
-            controlador.setControladorPrincipal(this);
-            controlador.setStage(stage);
-            controlador.showStage();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        lanzarVentanaSecundaria("/interfazVideojuego.fxml",400,305);
     }
 
     @Override
@@ -220,14 +147,29 @@ public class ControladorPrincipal implements Initializable {
     }
 
 
+    public void buscarVideoJuego() {
+        String patron = txfBuscador.getText();
+        if (patron.equals("")) {
+            patron = null;
+        }
+        List<Videojuego> listaVJ = DAOFactory.getVideojuegoDAO().getVideojuegos(
+                patron,
+                chbSistema.getSelectionModel().getSelectedItem(),
+                chbCategoria.getValue()
+        );
+
+        tv.getItems().clear();
+        tv.getItems().addAll(listaVJ);
+    }
+
     public void cargarCategorias() {
-        Categoria c=null;
+        Categoria c = null;
         chbCategoria.getItems().addAll(c);
         chbCategoria.getItems().addAll(DAOFactory.getCategoriaDAO().getCategorias());
     }
 
     public void cargarSistemas() {
-        Sistema s=null;
+        Sistema s = null;
         chbSistema.getItems().addAll(s);
         chbSistema.getItems().addAll(DAOFactory.getSistemaDAO().getSistema());
     }
@@ -239,10 +181,33 @@ public class ControladorPrincipal implements Initializable {
         cargarCategorias();
         cargarSistemas();
         em.getTransaction().begin();
-        List<Videojuego> listavideo= DAOFactory.getVideojuegoDAO().getVideojuegos(null,null,null);
+        List<Videojuego> listavideo = DAOFactory.getVideojuegoDAO().getVideojuegos(null, null, null);
         em.getTransaction().commit();
         tv.getItems().addAll(listavideo);
 
+    }
+
+    public void lanzarVentanaSecundaria(String fxml, Integer width, Integer height) {
+        try {
+            FXMLLoader carga = new FXMLLoader(getClass().getResource(fxml));
+
+            Parent root = carga.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setResizable(false);
+            if (width == null || height == null) {
+                stage.setScene((new Scene(root)));
+            } else {
+                stage.setScene(new Scene(root, width, height));
+            }
+            ControladorSecundario controlador = carga.getController();
+            controlador.setEntityManager(this.em);
+            controlador.setControladorPrincipal(this);
+            controlador.setStage(stage);
+            controlador.showStage();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

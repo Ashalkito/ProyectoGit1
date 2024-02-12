@@ -45,7 +45,7 @@
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="24.0">
          <children>
             <Label text="Titulo:" />
-            <TextField fx:id="txfBuscador" minWidth="-Infinity" prefWidth="300.0" />
+            <TextField fx:id="txfBuscador" minWidth="-Infinity" onKeyPressed="#pulsarEnter" prefWidth="300.0" />
             <Label text="Sistema:" />
             <ChoiceBox fx:id="chbSistema" prefWidth="150.0" />
             <Label text="Categoría:" />

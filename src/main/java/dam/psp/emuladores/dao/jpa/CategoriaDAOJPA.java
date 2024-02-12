@@ -12,28 +12,30 @@ import java.util.List;
 public class CategoriaDAOJPA implements CategoriaDAO {
     @Override
     public Categoria nuevaCategoria(String n) {
-        CategoriaJPA cj=new CategoriaJPA();
+        EntityManager em = GestorEntityManager.getINSTANCIA().getEntityManager();
+        CategoriaJPA categoria = null;
+
         try {
-            cj.setNombre(n);
-            EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
+            categoria=new CategoriaJPA();
+            categoria.setNombre(n);
             em.getTransaction().begin();
-            em.persist(cj);
+            em.persist(categoria);
             em.getTransaction().commit();
         }catch (Exception e){
-            System.out.println("Fallo metodo nueva categoria");
-            cj=null;
+            System.out.println(e.getMessage());
         }
-        return cj;
+
+        return categoria;
     }
 
     @Override
     public List<CategoriaJPA> getCategorias() {
-        List<CategoriaJPA> cts=null;
+        EntityManager em = GestorEntityManager.getINSTANCIA().getEntityManager();
+        List<CategoriaJPA> cts = null;
         try {
-            EntityManager em=GestorEntityManager.getINSTANCIA().getEntityManager();
-            cts=em.createQuery("SELECT c FROM CategoriaJPA c").getResultList();
-        }catch (Exception e){
-            System.out.println("No se pudo acceder a la lista de Categorias");
+            cts = em.createQuery("SELECT c FROM CategoriaJPA c").getResultList();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return cts;
     }
