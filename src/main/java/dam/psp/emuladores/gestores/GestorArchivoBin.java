@@ -14,7 +14,7 @@ public class GestorArchivoBin {
 
     public static GestorArchivoBin getInstancia(){
         GestorArchivoBin gbin;
-        if(gbin == null){
+        if(INSTANCIA == null){
             gbin = new GestorArchivoBin();
         }else{
             gbin = INSTANCIA;
