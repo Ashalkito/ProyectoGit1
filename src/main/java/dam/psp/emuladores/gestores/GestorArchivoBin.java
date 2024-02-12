@@ -11,7 +11,7 @@ import dam.psp.emuladores.modelo.bin.VideojuegoBin;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+//a
 public class GestorArchivoBin {
     private static GestorArchivoBin INSTANCIA;
     private List<CategoriaBin> categorias;
