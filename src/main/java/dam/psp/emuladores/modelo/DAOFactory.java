@@ -24,6 +24,9 @@ public class DAOFactory {
     }
 
     public static void main(String[] args) {
+        if(DAOFactory.getSistemaDAO() == null){
+
+        }
         Object sistemadao = DAOFactory.getSistemaDAO();
         Object emuladordao = DAOFactory.getEmuladorDAO();
         Object videojuegodao = DAOFactory.getVideojuegoDAO();
