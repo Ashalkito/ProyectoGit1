@@ -1,5 +1,10 @@
 package dam.psp.emuladores.gestores;
 
+import dam.psp.emuladores.modelo.bin.CategoriaBin;
+import dam.psp.emuladores.modelo.bin.EmuladorBin;
+import dam.psp.emuladores.modelo.bin.SistemaBin;
+import dam.psp.emuladores.modelo.bin.VideojuegoBin;
+
 import java.io.IOException;
 import java.util.List;
 
