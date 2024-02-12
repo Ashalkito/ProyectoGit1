@@ -2,7 +2,6 @@ package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.Categoria;
-import dam.psp.emuladores.modelo.DAOJPAFactory;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.Videojuego;
 import jakarta.persistence.EntityManager;
