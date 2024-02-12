@@ -12,11 +12,14 @@ public class SistemaDAOBin implements SistemaDAO {
     public Sistema nuevoSistema(String nombre) {
         GestorArchivoBin gab = GestorArchivoBin.getInstancia();
         List<SistemaBin> lista=gab.getSistemas();
-        return null;
+        SistemaBin ultimo = lista.get(lista.size()-1);
+        SistemaBin s=new SistemaBin(ultimo.getId()+1,nombre,gab.getVideojuegos(),gab.getEmuladores());
+        lista.add(s);
+        return s;
     }
 
     @Override
-    public <T extends Sistema> List<T> getSistema() {
-        return null;
+    public List<SistemaBin> getSistema() {
+        return GestorArchivoBin.getInstancia().getSistemas();
     }
 }
