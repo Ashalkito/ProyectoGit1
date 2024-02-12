@@ -1,9 +1,7 @@
 package dam.psp.emuladores.gui.controladores;
 
 import dam.psp.emuladores.gestores.GestorEntityManager;
-import dam.psp.emuladores.modelo.Categoria;
-import dam.psp.emuladores.modelo.Sistema;
-import dam.psp.emuladores.modelo.Videojuego;
+import dam.psp.emuladores.modelo.*;
 import jakarta.persistence.EntityManager;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
@@ -24,6 +22,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static dam.psp.emuladores.modelo.AlmacenDatos.JPA;
 
 
 public class ControladorPrincipal implements Initializable {
@@ -108,6 +108,8 @@ public class ControladorPrincipal implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ConfiguracionLectura.progEmDAOFac = ProgramaEmuladoresAbstractFactory.getDAOFactory(JPA);
+
         em = GestorEntityManager.getINSTANCIA().getEntityManager();
         chbCategoria.getSelectionModel().selectFirst();
         chbSistema.getSelectionModel().selectFirst();
@@ -150,7 +152,7 @@ public class ControladorPrincipal implements Initializable {
         if (patron.equals("")) {
             patron = null;
         }
-        List<Videojuego> listaVJ = DAOJPAFactory.getVideojuegoDAO().getVideojuegos(
+        List<Videojuego> listaVJ = ConfiguracionLectura.progEmDAOFac.getVideojuegoDAO().getVideojuegos(
 
                 patron,
                 chbSistema.getSelectionModel().getSelectedItem(),
@@ -164,13 +166,13 @@ public class ControladorPrincipal implements Initializable {
     public void cargarCategorias() {
         Categoria c = null;
         chbCategoria.getItems().addAll(c);
-        chbCategoria.getItems().addAll(DAOJPAFactory.getCategoriaDAO().getCategorias());
+        chbCategoria.getItems().addAll(ConfiguracionLectura.progEmDAOFac.getCategoriaDAO().getCategorias());
     }
 
     public void cargarSistemas() {
         Sistema s = null;
         chbSistema.getItems().addAll(s);
-        chbSistema.getItems().addAll(DAOJPAFactory.getSistemaDAO().getSistema());
+        chbSistema.getItems().addAll(ConfiguracionLectura.progEmDAOFac.getSistemaDAO().getSistema());
     }
 
     public void recargarVentana() {
@@ -180,7 +182,7 @@ public class ControladorPrincipal implements Initializable {
         cargarCategorias();
         cargarSistemas();
         em.getTransaction().begin();
-        List<Videojuego> listavideo = DAOJPAFactory.getVideojuegoDAO().getVideojuegos(null, null, null);
+        List<Videojuego> listavideo = ConfiguracionLectura.progEmDAOFac.getVideojuegoDAO().getVideojuegos(null, null, null);
         em.getTransaction().commit();
         tv.getItems().addAll(listavideo);
 

@@ -3,7 +3,6 @@ package dam.psp.emuladores.test;
 import dam.psp.emuladores.dao.jpa.VideojuegoDAOJPA;
 import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.Categoria;
-import dam.psp.emuladores.modelo.DAOFactory;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Videojuego;
 import dam.psp.emuladores.modelo.jpa.EmuladorJPA;

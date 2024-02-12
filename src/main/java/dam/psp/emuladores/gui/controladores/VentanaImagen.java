@@ -1,5 +1,6 @@
 package dam.psp.emuladores.gui.controladores;
 
+import dam.psp.emuladores.modelo.ConfiguracionLectura;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Videojuego;
 import javafx.event.ActionEvent;
@@ -62,7 +63,7 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
 
     public void cargarVentana(Videojuego vj) {
         this.videojuego = vj;
-        cmbEmulador.getItems().addAll(DAOJPAFactory.getEmuladorDAO().getEmuladores(videojuego.getSistema()));
+        cmbEmulador.getItems().addAll(ConfiguracionLectura.progEmDAOFac.getEmuladorDAO().getEmuladores(videojuego.getSistema()));
         try {
             InputStream is = new FileInputStream(videojuego.getRutaFoto());
             Image imagen = new Image(is);
@@ -72,4 +73,5 @@ public class VentanaImagen extends ControladorSecundario implements Initializabl
             System.out.println("Error al cargar la imagen");
         }
     }
+
 }
