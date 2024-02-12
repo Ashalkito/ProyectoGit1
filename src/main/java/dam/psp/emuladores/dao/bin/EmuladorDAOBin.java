@@ -2,17 +2,14 @@ package dam.psp.emuladores.dao.bin;
 
 import dam.psp.emuladores.dao.EmuladorDAO;
 import dam.psp.emuladores.gestores.GestorArchivoBin;
-import dam.psp.emuladores.gestores.GestorEntityManager;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Sistema;
 import dam.psp.emuladores.modelo.bin.EmuladorBin;
 import dam.psp.emuladores.modelo.bin.SistemaBin;
-import dam.psp.emuladores.modelo.jpa.EmuladorJPA;
-import dam.psp.emuladores.modelo.jpa.SistemaJPA;
 
 import java.util.List;
 
-public class EmuladoresDAOBin implements EmuladorDAO {
+public class EmuladorDAOBin implements EmuladorDAO {
     @Override
     public Emulador nuevoEmulador(String nombre, String ruta, String lc, Sistema s) {
         EmuladorBin e = null;
