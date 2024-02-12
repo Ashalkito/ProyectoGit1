@@ -5,7 +5,7 @@ import dam.psp.emuladores.dao.EmuladorDAO;
 import dam.psp.emuladores.dao.SistemaDAO;
 import dam.psp.emuladores.dao.VideojuegoDAO;
 import dam.psp.emuladores.dao.jpa.VideojuegoDAOJPA;
-//a
+
 public interface ProgramaEmuladoresDAOFactory {
     public SistemaDAO getSistemaDAO();
     public EmuladorDAO getEmuladorDAO();
