@@ -2,6 +2,8 @@ package dam.psp.emuladores.modelo.bin;
 
 import dam.psp.emuladores.modelo.Emulador;
 
+import java.util.Objects;
+
 public class EmuladorBin implements Emulador {
     private int id;
     private String nombre;
@@ -35,5 +37,18 @@ public class EmuladorBin implements Emulador {
 
     public SistemaBin getSistema() {
         return sistema;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmuladorBin that = (EmuladorBin) o;
+        return id == that.id && Objects.equals(nombre, that.nombre) && Objects.equals(ruta, that.ruta) && Objects.equals(lineaComandos, that.lineaComandos) && Objects.equals(sistema, that.sistema);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, ruta, lineaComandos, sistema);
     }
 }

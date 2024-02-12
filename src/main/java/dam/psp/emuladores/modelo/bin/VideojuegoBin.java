@@ -3,6 +3,7 @@ package dam.psp.emuladores.modelo.bin;
 import dam.psp.emuladores.modelo.Videojuego;
 
 import java.util.List;
+import java.util.Objects;
 
 public class VideojuegoBin implements Videojuego {
     private int id;
@@ -43,5 +44,18 @@ public class VideojuegoBin implements Videojuego {
 
     public List<CategoriaBin> getCategorias() {
         return categorias;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VideojuegoBin that = (VideojuegoBin) o;
+        return id == that.id && Objects.equals(nombre, that.nombre) && Objects.equals(sistema, that.sistema) && Objects.equals(ruta, that.ruta) && Objects.equals(rutaFoto, that.rutaFoto) && Objects.equals(categorias, that.categorias);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, sistema, ruta, rutaFoto, categorias);
     }
 }
