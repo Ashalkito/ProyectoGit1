@@ -1,6 +1,5 @@
 package dam.psp.emuladores.gui.controladores;
 
-import dam.psp.emuladores.modelo.DAOJPAFactory;
 import dam.psp.emuladores.modelo.Emulador;
 import dam.psp.emuladores.modelo.Videojuego;
 import javafx.event.ActionEvent;
